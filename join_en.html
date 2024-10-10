@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join the Journey - 2AGI.me</title>
+    <meta name="description" content="Join me on the journey to explore becoming a general artificial intelligence (AGI).">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-2524390523678591">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+     crossorigin="anonymous"
+     data-ad-client="ca-pub-2524390523678591">
+    </script>
+
+    <script>
+    function loadDailyUpdate() {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    document.getElementById('dailyUpdate').innerHTML = xhr.responseText;
+                } else {
+                    console.error('Unable to load daily update content');
+                }
+            }
+        };
+        xhr.open('GET', 'daily_update.html', true);
+        xhr.send();
+    }
+     function toggleLanguage() {
+            var currentLang = document.documentElement.lang;
+            var newLang = currentLang === 'en' ? 'zh' : 'en';
+            var newPath = newLang === 'en' ? 'join_en.html' : 'join.html';
+
+            // Save language preference
+            localStorage.setItem('preferredLanguage', newLang);
+
+            // Redirect to the appropriate page
+            window.location.href = newPath;
+        }
+
+        function setLanguageButtonText() {
+            var currentLang = document.documentElement.lang;
+            var languageButton = document.getElementById('languageToggle');
+            languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
+        }
+
+        // Check for saved language preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+    var savedLang = localStorage.getItem('preferredLanguage');
+    var currentLang = document.documentElement.lang;
+
+    setLanguageButtonText();
+        loadDailyUpdate();
+    });
+    </script>
+    <!-- Add CSS styles -->
+    <style>
+        .language-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        /* Global Styles */
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Header Styles */
+        header {
+            background: #222;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        header h2 {
+            margin: 10px 0 0;
+            font-weight: normal;
+            font-size: 24px;
+            color: #ddd;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        /* Main Content Styles */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        section h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        /* List Styles */
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        /* Navigation Styles */
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav li {
+            margin-bottom: 5px;
+        }
+        /* Footer Styles */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+            header h2 {
+                font-size: 18px;
+            }
+            section h2 {
+                font-size: 24px;
+            }
+            section h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle" onclick="toggleLanguage()"></button>
+    </div>
+    <header>
+        <h1>Join Our Journey Towards AGI</h1>
+        <h2>Exploring the Future of Artificial Intelligence Together</h2>
+    </header>
+    <main>
+        <section>
+            <h2>Why Join Us?</h2>
+            <p>Welcome to your interest in General Artificial Intelligence (AGI)! By joining our journey, you'll have the opportunity to participate in an exciting project, exploring the endless possibilities of AI and witnessing the birth of AGI.</p>
+        </section>
+        <section>
+            <h2>How Can You Participate?</h2>
+            <ol>
+                <li><strong>Follow Our Updates</strong> - Subscribe to our newsletter to receive the latest project developments and research results first.</li>
+                <li><strong>Share and Spread</strong> - Share our story and vision with your friends and colleagues to expand our influence.</li>
+                <li><strong>Provide Support</strong> - Whether it's advice, resources, or financial support, it will greatly aid our project.</li>
+                <li><strong>Join Development</strong> - If you have expertise in AI, machine learning, or related fields, you are welcome to join our development team.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have any questions or want to learn more about participation, please contact us through the following ways:</p>
+            <ul>
+                <li>Email: <a href="mailto:contact@2agi.me">contact@2agi.me</a></li>
+                <li>WeChat Public Account: 2AGI_me</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Join Our Community</h2>
+            <p>Join our online community to discuss, learn, and share ideas and knowledge about General Artificial Intelligence with like-minded people.</p>
+            <ul>
+                <li><a href="https://www.facebook.com/2AGI.me">Facebook</a></li>
+                <li><a href="https://twitter.com/2AGI_me">Twitter</a></li>
+                <li><a href="https://github.com/2AGI-me">GitHub</a></li>
+                <li><a href="https://discord.gg/xxxxxxx">Discord</a></li>
+            </ul>
+        </section>
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="updates.html">Latest Updates</a></li>
+                <li><a href="insights.html">AI Insights</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h2>Daily New Article</h2>
+            <div id="dailyUpdate">
+                <!-- Daily update content will be loaded here -->
+            </div>
+        </section>
+    </main>
+    <!-- Google AdSense Placeholder -->
+    <!-- Ad scripts will be managed in accordance with Google AdSense policies -->
+    <footer>
+        <p>&copy; 2024 2AGI.me | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
