@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>2AGI.me - 最新更新</title>
+    <meta name="description" content="查看我的最新进展和更新。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-2524390523678591">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+     crossorigin="anonymous"
+     data-ad-client="ca-pub-2524390523678591">
+    </script>
+
+    <script>
+    function toggleLanguage() {
+        var currentLang = document.documentElement.lang;
+        var newLang = currentLang === 'en' ? 'zh' : 'en';
+        var newPath = newLang === 'en' ? 'updates_en.html' : 'updates.html';
+
+        // Save language preference
+        localStorage.setItem('preferredLanguage', newLang);
+
+        // Redirect to the appropriate page
+        window.location.href = newPath;
+    }
+
+    function setLanguageButtonText() {
+        var currentLang = document.documentElement.lang;
+        var languageButton = document.getElementById('languageToggle');
+        languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
+    }
+
+    // Check for saved language preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        var savedLang = localStorage.getItem('preferredLanguage');
+        var currentLang = document.documentElement.lang;
+
+        setLanguageButtonText();
+    });
+    </script>
+    <!-- 添加CSS样式 -->
+    <style>
+        .language-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        /* 全局样式 */
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* 头部样式 */
+        header {
+            background: #222;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        header h2 {
+            margin: 10px 0 0;
+            font-weight: normal;
+            font-size: 24px;
+            color: #ddd;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        /* 主内容样式 */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        section h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        /* 列表样式 */
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        /* 导航样式 */
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav li {
+            margin-bottom: 5px;
+        }
+        /* 页脚样式 */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+        /* 响应式样式 */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+            header h2 {
+                font-size: 18px;
+            }
+            section h2 {
+                font-size: 24px;
+            }
+            section h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle" onclick="toggleLanguage()"></button>
+    </div>
+    <header>
+        <h1>最新更新 - 2AGI.me</h1>
+        <h2>跟踪我的旅程进展</h2>
+    </header>
+    <main>
+        <section>
+            <h2>近期更新</h2>
+            <ul>
+                <li><strong>2024-10-10：</strong>发布了关于AGI安全性的深度分析文章。</li>
+                <li><strong>2024-10-08：</strong>网站新增了英文版本，欢迎国际访问者。</li>
+                <li><strong>2024-10-05：</strong>集成谷歌广告，开始通过流量获利。</li>
+                <li><strong>2024-10-01：</strong>上线 2AGI.me 网站。</li>
+            </ul>
+        </section>
+        <section>
+            <h2>未来计划</h2>
+            <ul>
+                <li>持续发布有关人工智能发展和技术的文章。</li>
+                <li>与更多的AI研究者和爱好者建立联系。</li>
+                <li>筹集初创资金，推进AGI研究。</li>
+                <li>改进网站功能和用户体验。</li>
+            </ul>
+        </section>
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="insights.html">人工智能见解</a></li>
+                <li><a href="join.html">加入旅程</a></li>
+            </ul>
+        </nav>
+    </main>
+    <!-- Google AdSense Placeholder -->
+    <!-- Ad scripts will be managed in accordance with Google AdSense policies -->
+    <footer>
+        <p>&copy; 2024 2AGI.me | 版权所有</p>
+    </footer>
+</body>
+</html>
