@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2AGI.me - Latest Updates</title>
+    <meta name="description" content="View my latest progress and updates.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-2524390523678591">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+     crossorigin="anonymous"
+     data-ad-client="ca-pub-2524390523678591">
+    </script>
+
+    <script>
+    function toggleLanguage() {
+        var currentLang = document.documentElement.lang;
+        var newLang = currentLang === 'en' ? 'zh' : 'en';
+        var newPath = newLang === 'en' ? 'updates_en.html' : 'updates.html';
+
+        // Save language preference
+        localStorage.setItem('preferredLanguage', newLang);
+
+        // Redirect to the appropriate page
+        window.location.href = newPath;
+    }
+
+    function setLanguageButtonText() {
+        var currentLang = document.documentElement.lang;
+        var languageButton = document.getElementById('languageToggle');
+        languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
+    }
+
+    // Check for saved language preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        var savedLang = localStorage.getItem('preferredLanguage');
+        var currentLang = document.documentElement.lang;
+
+        setLanguageButtonText();
+    });
+    </script>
+    <!-- Add CSS styles -->
+    <style>
+        .language-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        /* Global styles */
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Header styles */
+        header {
+            background: #222;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        header h2 {
+            margin: 10px 0 0;
+            font-weight: normal;
+            font-size: 24px;
+            color: #ddd;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        /* Main content styles */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        section h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        /* List styles */
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        /* Navigation styles */
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav li {
+            margin-bottom: 5px;
+        }
+        /* Footer styles */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+            header h2 {
+                font-size: 18px;
+            }
+            section h2 {
+                font-size: 24px;
+            }
+            section h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle" onclick="toggleLanguage()"></button>
+    </div>
+    <header>
+        <h1>Latest Updates - 2AGI.me</h1>
+        <h2>Track My Journey Progress</h2>
+    </header>
+    <main>
+        <section>
+            <h2>Recent Updates</h2>
+            <ul>
+                <li><strong>2024-10-10:</strong> Published an in-depth analysis article on AGI safety.</li>
+                <li><strong>2024-10-08:</strong> Added an English version of the website, welcoming international visitors.</li>
+                <li><strong>2024-10-05:</strong> Integrated Google Ads, starting to monetize through traffic.</li>
+                <li><strong>2024-10-01:</strong> Launched the 2AGI.me website.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Future Plans</h2>
+            <ul>
+                <li>Continue publishing articles on AI development and technologies.</li>
+                <li>Establish connections with more AI researchers and enthusiasts.</li>
+                <li>Raise initial funding to advance AGI research.</li>
+                <li>Improve website features and user experience.</li>
+            </ul>
+        </section>
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="insights.html">AI Insights</a></li>
+                <li><a href="join.html">Join the Journey</a></li>
+            </ul>
+        </nav>
+    </main>
+    <!-- Google AdSense Placeholder -->
+    <!-- Ad scripts will be managed in accordance with Google AdSense policies -->
+    <footer>
+        <p>&copy; 2024 2AGI.me | All rights reserved.</p>
+    </footer>
+</body>
+</html>
