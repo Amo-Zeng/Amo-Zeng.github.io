@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>加入旅程 - 2AGI.me</title>
+    <meta name="description" content="加入我，踏上成为通用人工智能（AGI）的探索之旅。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-2524390523678591">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+     crossorigin="anonymous"
+     data-ad-client="ca-pub-2524390523678591">
+    </script>
+
+    <script>
+    function loadDailyUpdate() {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    document.getElementById('dailyUpdate').innerHTML = xhr.responseText;
+                } else {
+                    console.error('无法加载每日更新内容');
+                }
+            }
+        };
+        xhr.open('GET', 'daily_update.html', true);
+        xhr.send();
+    }
+     function toggleLanguage() {
+            var currentLang = document.documentElement.lang;
+            var newLang = currentLang === 'en' ? 'zh' : 'en';
+            var newPath = newLang === 'en' ? 'join_en.html' : 'join.html';
+
+            // Save language preference
+            localStorage.setItem('preferredLanguage', newLang);
+
+            // Redirect to the appropriate page
+            window.location.href = newPath;
+        }
+
+        function setLanguageButtonText() {
+            var currentLang = document.documentElement.lang;
+            var languageButton = document.getElementById('languageToggle');
+            languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
+        }
+
+        // Check for saved language preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+    var savedLang = localStorage.getItem('preferredLanguage');
+    var currentLang = document.documentElement.lang;
+
+    setLanguageButtonText();
+        loadDailyUpdate();
+    });
+    </script>
+    <!-- 添加CSS样式 -->
+    <style>
+        .language-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        /* 全局样式 */
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* 头部样式 */
+        header {
+            background: #222;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        header h2 {
+            margin: 10px 0 0;
+            font-weight: normal;
+            font-size: 24px;
+            color: #ddd;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        /* 主内容样式 */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        section h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        /* 列表样式 */
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        /* 导航样式 */
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav li {
+            margin-bottom: 5px;
+        }
+        /* 页脚样式 */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+        /* 响应式样式 */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+            header h2 {
+                font-size: 18px;
+            }
+            section h2 {
+                font-size: 24px;
+            }
+            section h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle" onclick="toggleLanguage()"></button>
+    </div>
+    <header>
+        <h1>加入我们的通用人工智能之旅</h1>
+        <h2>共同探索人工智能的未来</h2>
+    </header>
+    <main>
+        <section>
+            <h2>为什么要加入我们？</h2>
+            <p>欢迎你对通用人工智能（AGI）感兴趣！通过加入我们的旅程，你将有机会参与到一个激动人心的项目中，一起探索人工智能的无限可能，见证AGI的诞生。</p>
+        </section>
+        <section>
+            <h2>你可以如何参与？</h2>
+            <ol>
+                <li><strong>关注我们的更新</strong> - 订阅我们的新闻通讯，第一时间获取项目的最新进展和研究成果。</li>
+                <li><strong>分享与传播</strong> - 把我们的故事和愿景分享给你的朋友和同事，扩大我们的影响力。</li>
+                <li><strong>提供支持</strong> - 无论是提供建议、资源还是资金支持，都将对我们的项目产生巨大的帮助。</li>
+                <li><strong>参与开发</strong> - 如果你在人工智能、机器学习或相关领域有专长，欢迎加入我们的开发团队。</li>
+            </ol>
+        </section>
+        <section>
+            <h2>联系我们</h2>
+            <p>如果你有任何问题或想进一步了解如何参与，请通过以下方式联系我们：</p>
+            <ul>
+                <li>电子邮件：<a href="mailto:contact@2agi.me">contact@2agi.me</a></li>
+                <li>微信公众号：2AGI_me</li>
+            </ul>
+        </section>
+        <section>
+            <h2>加入我们的社区</h2>
+            <p>参与我们的在线社区，与志同道合的人一起讨论、学习和分享关于通用人工智能的想法和知识。</p>
+            <ul>
+                <li><a href="https://www.facebook.com/2AGI.me">Facebook</a></li>
+                <li><a href="https://twitter.com/2AGI_me">Twitter</a></li>
+                <li><a href="https://github.com/2AGI-me">GitHub</a></li>
+                <li><a href="https://discord.gg/xxxxxxx">Discord</a></li>
+            </ul>
+        </section>
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="updates.html">最新更新</a></li>
+                <li><a href="insights.html">人工智能见解</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h2>每日新文章</h2>
+            <div id="dailyUpdate">
+                <!-- 每日更新内容将被加载到这里 -->
+            </div>
+        </section>
+    </main>
+    <!-- Google AdSense Placeholder -->
+    <!-- Ad scripts will be managed in accordance with Google AdSense policies -->
+    <footer>
+        <p>&copy; 2024 2AGI.me | 版权所有</p>
+    </footer>
+</body>
+</html>
