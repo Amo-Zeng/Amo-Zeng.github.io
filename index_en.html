@@ -171,6 +171,33 @@
                 font-size: 20px;
             }
         }
+	.logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 120px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Adjust header styles to accommodate logo */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+        }
+        header h1 {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -178,6 +205,9 @@
 	<button id="languageToggle" onclick="toggleLanguage()">English</button>
     </div>
     <header>
+	<div class="logo-container">
+            <img src="logo.png" alt="2AGI.me Logo" class="logo">
+        </div>
         <h1>Welcome to 2AGI.me</h1>
         <h2>My Journey to General Artificial Intelligence</h2>
     </header>
