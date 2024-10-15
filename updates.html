@@ -12,6 +12,85 @@
      crossorigin="anonymous"
      data-ad-client="ca-pub-2524390523678591">
     </script>
+    <script>
+	function loadDailyUpdate() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+		document.getElementById('dailyUpdate').innerHTML = "<ul>"+xhr.responseText+"</ul>";
+            } else {
+                console.error('无法加载每日更新内容');
+            }
+        }
+    };
+    xhr.open('GET', 'recent_update.html', true);
+    xhr.send();
+}
+        function toggleLanguage() {
+            var currentLang = document.documentElement.lang;
+            var newLang = currentLang === 'en' ? 'zh' : 'en';
+
+            // 获取当前页面的文件名
+            var currentPath = window.location.pathname;
+            var currentFileName = currentPath.split('/').pop();
+
+            // 生成新的文件名
+            var newFileName;
+            if (currentFileName.endsWith('_en.html')) {
+                newFileName = currentFileName.replace('_en.html', '.html');
+            } else if (currentFileName.endsWith('.html')) {
+                newFileName = currentFileName.replace('.html', '_en.html');
+            } else {
+                newFileName = currentFileName;
+            }
+
+            // 构造新的 URL
+            var newPath = currentPath.replace(currentFileName, newFileName);
+
+            // 保存语言偏好
+            localStorage.setItem('preferredLanguage', newLang);
+
+            // 重定向到新页面
+            window.location.href = newPath;
+        }
+
+        function setLanguageButtonText() {
+            var currentLang = document.documentElement.lang;
+            var languageButton = document.getElementById('languageToggle');
+            languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
+        }
+
+        function redirectToPreferredLanguage() {
+            var savedLang = localStorage.getItem('preferredLanguage');
+            var currentLang = document.documentElement.lang;
+
+            if (savedLang && savedLang !== currentLang) {
+                var currentPath = window.location.pathname;
+                var currentFileName = currentPath.split('/').pop();
+                var newFileName;
+
+                if (savedLang === 'en' && !currentFileName.endsWith('_en.html')) {
+                    newFileName = currentFileName.replace('.html', '_en.html');
+                } else if (savedLang === 'zh' && currentFileName.endsWith('_en.html')) {
+                    newFileName = currentFileName.replace('_en.html', '.html');
+                } else {
+                    return; // 不需要重定向
+                }
+
+                var newPath = currentPath.replace(currentFileName, newFileName);
+                window.location.href = newPath;
+            }
+        }
+
+        // 页面加载时检查保存的语言偏好并进行重定向
+        document.addEventListener('DOMContentLoaded', function() {
+            redirectToPreferredLanguage();
+            setLanguageButtonText();
+        loadDailyUpdate();
+        });
+
+    </script>
 
     
     <!-- 添加CSS样式 -->
@@ -120,7 +199,6 @@
             }
         }
     </style>
-<script src="script.js"></script>
 </head>
 <body>
     <div class="language-switch">
@@ -133,12 +211,9 @@
     <main>
         <section>
             <h2>近期更新</h2>
-            <ul>
-                <li><strong>2024-10-10：</strong>发布了关于AGI安全性的深度分析文章。</li>
-                <li><strong>2024-10-08：</strong>网站新增了英文版本，欢迎国际访问者。</li>
-                <li><strong>2024-10-05：</strong>集成谷歌广告，开始通过流量获利。</li>
-                <li><strong>2024-10-01：</strong>上线 2AGI.me 网站。</li>
-            </ul>
+	    <div id="dailyUpdate">
+	    
+	    </div>
         </section>
         <section>
             <h2>未来计划</h2>
