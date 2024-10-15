@@ -49,7 +49,7 @@
             // 构造新的 URL
             var newPath = currentPath.replace(currentFileName, newFileName);
             if (! currentFileName) {
-                newPath = newPath+"/index_en.html";
+                newPath = "http://2agi.me/index_en.html";
             }
             // 保存语言偏好
             localStorage.setItem('preferredLanguage', newLang);
@@ -86,7 +86,7 @@
 
                 var newPath = currentPath.replace(currentFileName, newFileName);
             if (currentFileName == "index.html") {
-                newPath = newPath+"/index_en.html";
+                newPath = "http://2agi.me/index_en.html";
             }
                 window.location.href = newPath;
             }
