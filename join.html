@@ -28,15 +28,31 @@
         xhr.open('GET', 'daily_update.html', true);
         xhr.send();
     }
-     function toggleLanguage() {
+        function toggleLanguage() {
             var currentLang = document.documentElement.lang;
             var newLang = currentLang === 'en' ? 'zh' : 'en';
-            var newPath = newLang === 'en' ? 'join_en.html' : 'join.html';
 
-            // Save language preference
+            // 获取当前页面的文件名
+            var currentPath = window.location.pathname;
+            var currentFileName = currentPath.split('/').pop();
+
+            // 生成新的文件名
+            var newFileName;
+            if (currentFileName.endsWith('_en.html')) {
+                newFileName = currentFileName.replace('_en.html', '.html');
+            } else if (currentFileName.endsWith('.html')) {
+                newFileName = currentFileName.replace('.html', '_en.html');
+            } else {
+                newFileName = currentFileName;
+            }
+
+            // 构造新的 URL
+            var newPath = currentPath.replace(currentFileName, newFileName);
+
+            // 保存语言偏好
             localStorage.setItem('preferredLanguage', newLang);
 
-            // Redirect to the appropriate page
+            // 重定向到新页面
             window.location.href = newPath;
         }
 
@@ -46,14 +62,34 @@
             languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
         }
 
-        // Check for saved language preference on page load
-    document.addEventListener('DOMContentLoaded', function() {
-    var savedLang = localStorage.getItem('preferredLanguage');
-    var currentLang = document.documentElement.lang;
+        function redirectToPreferredLanguage() {
+            var savedLang = localStorage.getItem('preferredLanguage');
+            var currentLang = document.documentElement.lang;
 
-    setLanguageButtonText();
+            if (savedLang && savedLang !== currentLang) {
+                var currentPath = window.location.pathname;
+                var currentFileName = currentPath.split('/').pop();
+                var newFileName;
+
+                if (savedLang === 'en' && !currentFileName.endsWith('_en.html')) {
+                    newFileName = currentFileName.replace('.html', '_en.html');
+                } else if (savedLang === 'zh' && currentFileName.endsWith('_en.html')) {
+                    newFileName = currentFileName.replace('_en.html', '.html');
+                } else {
+                    return; // 不需要重定向
+                }
+
+                var newPath = currentPath.replace(currentFileName, newFileName);
+                window.location.href = newPath;
+            }
+        }
+
+        // 页面加载时检查保存的语言偏好并进行重定向
+        document.addEventListener('DOMContentLoaded', function() {
+            redirectToPreferredLanguage();
+            setLanguageButtonText();
         loadDailyUpdate();
-    });
+        });
     </script>
     <!-- 添加CSS样式 -->
     <style>
