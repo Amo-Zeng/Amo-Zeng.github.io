@@ -13,33 +13,7 @@
      data-ad-client="ca-pub-2524390523678591">
     </script>
 
-    <script>
-    function toggleLanguage() {
-        var currentLang = document.documentElement.lang;
-        var newLang = currentLang === 'en' ? 'zh' : 'en';
-        var newPath = newLang === 'en' ? 'updates_en.html' : 'updates.html';
-
-        // Save language preference
-        localStorage.setItem('preferredLanguage', newLang);
-
-        // Redirect to the appropriate page
-        window.location.href = newPath;
-    }
-
-    function setLanguageButtonText() {
-        var currentLang = document.documentElement.lang;
-        var languageButton = document.getElementById('languageToggle');
-        languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
-    }
-
-    // Check for saved language preference on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        var savedLang = localStorage.getItem('preferredLanguage');
-        var currentLang = document.documentElement.lang;
-
-        setLanguageButtonText();
-    });
-    </script>
+    
     <!-- Add CSS styles -->
     <style>
         .language-switch {
@@ -146,6 +120,7 @@
             }
         }
     </style>
+<script src="script.js"></script>
 </head>
 <body>
     <div class="language-switch">
