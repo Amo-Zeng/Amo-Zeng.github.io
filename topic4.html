@@ -15,32 +15,7 @@
 
 <script>
     // 语言切换和其他脚本
-    function toggleLanguage() {
-        var currentLang = document.documentElement.lang;
-        var newLang = currentLang === 'en' ? 'zh' : 'en';
-        var newPath = newLang === 'en' ? 'topic4_en.html' : 'topic4.html';
-
-        // Save language preference
-        localStorage.setItem('preferredLanguage', newLang);
-
-        // Redirect to the appropriate page
-        window.location.href = newPath;
-    }
-
-    function setLanguageButtonText() {
-        var currentLang = document.documentElement.lang;
-        var languageButton = document.getElementById('languageToggle');
-        languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
-    }
-
-    // Check for saved language preference on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        var savedLang = localStorage.getItem('preferredLanguage');
-        var currentLang = document.documentElement.lang;
-
-        setLanguageButtonText();
-    });
-</script>
+    
 
 <!-- 添加CSS样式 -->
 <style>
@@ -141,7 +116,8 @@
             font-size: 20px;
         }
     }
-</style></head>
+</style><script src="script.js"></script>
+</head>
 <body>
     <div class="language-switch">
         <button id="languageToggle" onclick="toggleLanguage()"></button>
