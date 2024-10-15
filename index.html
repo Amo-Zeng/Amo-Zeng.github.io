@@ -48,7 +48,7 @@
 
             // 构造新的 URL
             var newPath = currentPath.replace(currentFileName, newFileName);
-            if (not currentFileName) {
+            if (! currentFileName) {
                 newPath = newPath+"/index_en.html";
             }
             // 保存语言偏好
@@ -71,7 +71,10 @@
             if (savedLang && savedLang !== currentLang) {
                 var currentPath = window.location.pathname;
                 var currentFileName = currentPath.split('/').pop();
-                var newFileName;
+                var newFileName; 
+            if (! currentFileName) {
+                currentFileName = "index.html";
+            }
 
                 if (savedLang === 'en' && !currentFileName.endsWith('_en.html')) {
                     newFileName = currentFileName.replace('.html', '_en.html');
@@ -82,6 +85,9 @@
                 }
 
                 var newPath = currentPath.replace(currentFileName, newFileName);
+            if (currentFileName == "index.html") {
+                newPath = newPath+"/index_en.html";
+            }
                 window.location.href = newPath;
             }
         }
