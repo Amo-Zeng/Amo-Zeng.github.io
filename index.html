@@ -48,7 +48,9 @@
 
             // 构造新的 URL
             var newPath = currentPath.replace(currentFileName, newFileName);
-
+            if (not currentFileName) {
+                newPath = newPath+"/index_en.html";
+            }
             // 保存语言偏好
             localStorage.setItem('preferredLanguage', newLang);
 
