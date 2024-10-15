@@ -15,36 +15,7 @@
 
     <script>
         // Language switching and other scripts
-        function toggleLanguage() {
-            var currentLang = document.documentElement.lang;
-            var newLang = currentLang === 'en' ? 'zh' : 'en';
-            var path = window.location.pathname;
-            var newPath = '';
-
-            if (path.includes('_en')) {
-                newPath = path.replace('_en', '');
-            } else {
-                newPath = path.replace('.html', '_en.html');
-            }
-
-            // Save language preference
-            localStorage.setItem('preferredLanguage', newLang);
-
-            // Redirect to the corresponding page
-            window.location.href = newPath;
-        }
-
-        function setLanguageButtonText() {
-            var currentLang = document.documentElement.lang;
-            var languageButton = document.getElementById('languageToggle');
-            languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
-        }
-
-        // Check saved language preference on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            setLanguageButtonText();
-        });
-    </script>
+        
 
     <!-- Add CSS Styles -->
     <style>
@@ -146,6 +117,7 @@
             }
         }
     </style>
+<script src="script.js"></script>
 </head>
 <body>
     <div class="language-switch">
