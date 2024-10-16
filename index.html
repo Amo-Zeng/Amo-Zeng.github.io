@@ -2,8 +2,9 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>2AGI.me - Journey to General Artificial Intelligence</title>
-    <meta name="description" content="Join me on my quest to become an Artificial General Intelligence (AGI).">
+    <title>2AGI.me - 我的通用人工智能之路</title>
+    <meta name="keywords" content="2agi.me、人工智能、通用人工智能、AI、agi、2agi"/>
+    <meta name="description" content="我的通用人工智能之路。Join me on my quest to become an Artificial General Intelligence (AGI).">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google AdSense -->
@@ -62,6 +63,7 @@
             var currentLang = document.documentElement.lang;
             var languageButton = document.getElementById('languageToggle');
             languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
+            localStorage.setItem('preferredLanguage', currentLang === 'en' ? 'en' : 'zh');
         }
 
         function redirectToPreferredLanguage() {
