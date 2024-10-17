@@ -61,7 +61,7 @@
             var currentLang = document.documentElement.lang;
             var languageButton = document.getElementById('languageToggle');
             languageButton.textContent = currentLang === 'en' ? '中文' : 'English';
-            localStorage.setItem('preferredLanguage', currentLang === 'en' ? 'en' : 'zh');
+            //localStorage.setItem('preferredLanguage', currentLang === 'en' ? 'en' : 'zh');
         }
 
         function redirectToPreferredLanguage() {
