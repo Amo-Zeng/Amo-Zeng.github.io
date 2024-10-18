@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap-image/1.1"
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap-image/1.1
-        http://www.sitemaps.org/schemas/sitemap-image/1.1/sitemap-image.xsd">
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
     <loc>http://2agi.me/article1_en.html</loc>
@@ -84,8 +84,8 @@
   <url>
     <loc>http://2agi.me/index.html</loc>
     <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
   </url>
 
   <url>
@@ -98,8 +98,8 @@
   <url>
     <loc>http://2agi.me/updates_en.html</loc>
     <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
@@ -168,8 +168,8 @@
   <url>
     <loc>http://2agi.me/index_en.html</loc>
     <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
   </url>
 
   <url>
@@ -189,8 +189,8 @@
   <url>
     <loc>http://2agi.me/updates.html</loc>
     <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
@@ -558,14 +558,6 @@
   </url>
 
   <url>
-    <loc>http://2agi.me/hqarticles/capitalism
-.html</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
     <loc>http://2agi.me/hqarticles/agroecology.html</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -650,14 +642,6 @@
   </url>
 
   <url>
-    <loc>http://2agi.me/hqarticles/5G_technology
-.html</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
     <loc>http://2agi.me/hqarticles/isomer_(chemistry).html</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -680,6 +664,13 @@
 
   <url>
     <loc>http://2agi.me/hqarticles/math_en.html</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>http://2agi.me/hqarticles/Cloud_Management_Platform_en.html</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -777,14 +768,6 @@
   </url>
 
   <url>
-    <loc>http://2agi.me/hqarticles/capitalism
-_en.html</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
     <loc>http://2agi.me/hqarticles/acid-base_reaction.html</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -800,6 +783,13 @@ _en.html</loc>
 
   <url>
     <loc>http://2agi.me/hqarticles/sculpture_en.html</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>http://2agi.me/hqarticles/Cloud_Management_Platform.html</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -849,14 +839,6 @@ _en.html</loc>
 
   <url>
     <loc>http://2agi.me/hqarticles/biotechnology_en.html</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>http://2agi.me/hqarticles/5G_technology
-_en.html</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
