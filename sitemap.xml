@@ -131,13 +131,6 @@
   </url>
 
   <url>
-    <loc>http://2agi.me/daily_tem.html</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
     <loc>http://2agi.me/daily_update_en.html</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -580,13 +573,6 @@
 
   <url>
     <loc>http://2agi.me/hqarticles/chemical_weapon.html</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>http://2agi.me/hqarticles/tem.html</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
