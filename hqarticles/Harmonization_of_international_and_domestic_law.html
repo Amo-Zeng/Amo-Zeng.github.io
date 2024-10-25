@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>结束执行程序或脚本 - 2AGI.me</title>
+    <meta name="keywords" content="结束程序, 脚本, 命令行, 终端, Python, Bash, PowerShell, 任务管理器, 活动监视器, IDE, 2AGI.me"/>
+    <meta name="description" content="探讨如何结束执行程序或脚本的各种方法。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-2524390523678591">
+    <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+     crossorigin="anonymous"
+     data-ad-client="ca-pub-2524390523678591">
+    </script>-->
+
+    <!-- 引入外部CSS样式 -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle" onclick="toggleLanguage()"></button>
+    </div>
+    <header>
+        <h1>人工智能见解</h1>
+        <h2>结束执行程序或脚本</h2>
+    </header>
+    <main>
+        <section>
+            <h2>在命令行或终端中</h2>
+            <ol>
+                <li><strong>Ctrl + C</strong>：在大多数操作系统中，按 `Ctrl` 和 `C` 键同时可以中断当前正在运行的进程。</li>
+                <li><strong>kill 命令</strong>：在 Unix/Linux 系统中，可以使用 `kill` 命令结束一个进程。例如，`kill -9 <PID>` 可以强制结束指定进程号的进程。</li>
+                <li><strong>taskkill 命令</strong>：在 Windows 系统中，可以使用 `taskkill` 命令结束一个进程。例如，`taskkill /F /PID <PID>` 可以强制结束指定进程号的进程。</li>
+            </ol>
+        </section>
+        <section>
+            <h2>在脚本中</h2>
+            <h3>Python</h3>
+            <p>在 Python 脚本中，可以使用 `sys.exit()` 或 `exit()` 来结束程序的执行。</p>
+            <pre><code>import sys
+sys.exit("程序结束")</code></pre>
+            <p>或者</p>
+            <pre><code>exit("程序结束")</code></pre>
+
+            <h3>Bash</h3>
+            <p>在 Bash 脚本中，可以使用 `exit` 命令来结束脚本的执行。</p>
+            <pre><code>#!/bin/bash
+echo "脚本结束"
+exit 0</code></pre>
+
+            <h3>PowerShell</h3>
+            <p>在 PowerShell 脚本中，可以使用 `exit` 命令来结束脚本的执行。</p>
+            <pre><code>Write-Output "脚本结束"
+exit</code></pre>
+        </section>
+        <section>
+            <h2>在图形用户界面（GUI）中</h2>
+            <ol>
+                <li><strong>任务管理器</strong>：在 Windows 系统中，可以打开任务管理器，找到要结束的进程，然后点击“结束任务”。</li>
+                <li><strong>活动监视器</strong>：在 macOS 系统中，可以打开活动监视器，找到要结束的进程，然后点击“强制退出”。</li>
+            </ol>
+        </section>
+        <section>
+            <h2>在集成开发环境（IDE）中</h2>
+            <p>大多数 IDE 都提供了停止按钮，可以直接点击停止按钮来结束程序的执行。</p>
+        </section>
+        <section>
+            <h3>结论</h3>
+            <p>希望这些方法能帮助你结束执行程序或脚本。如果你有更具体的需求，请提供更多细节，以便我能给出更准确的建议。</p>
+        </section>
+        <!-- 导航链接 -->
+        <nav>
+            <ul>
+                <li><a href="../index.html">主页</a></li>
+                <li><a href="../insights.html">人工智能见解</a></li>
+                <li><a href="../updates.html">最新更新</a></li>
+                <li><a href="../join.html">加入旅程</a></li>
+            </ul>
+        </nav>
+    </main>
+    <!-- Google AdSense Placeholder -->
+    <!-- 根据Google AdSense政策管理广告脚本 -->
+    <footer>
+        <p>&copy; 2024 2AGI.me | 版权所有</p>
+    </footer>
+
+    <!-- 引入外部JavaScript文件 -->
+    <script src="../script.js"></script>
+</body>
+</html>
