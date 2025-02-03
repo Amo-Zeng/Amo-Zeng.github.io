@@ -1,0 +1,55 @@
+# ⚠️ 模型 'deepseek-reasoner(R1)' 不受支持
+
+## 支持的模型列表:
+
+### GPT 系列
+- `gpt-3.5-turbo`
+- `gpt-4-turbo`
+- `gpt-4o`
+- `gpt-4o-64k-output`
+- `gpt-4o-mini`
+- `o1-mini`
+- `o3-mini`
+
+### Claude 系列
+- `claude-3-opus`
+- `claude-3-sonnet`
+- `claude-3-haiku`
+- `claude-3.5-sonnet`
+- `claude-3.5-haiku`
+
+### Deepseek 系列
+- `deepseek-chat`
+- `deepseek-reasoner(R1)`
+
+### Gemini 系列
+- `gemini-pro`
+- `gemini-1.5-pro`
+- `gemini-1.5-flash`
+
+### Mistral 系列
+- `mistral-large-latest`
+- `mistralai/Mixtral-8x7B-Instruct-v0.1`
+
+### 其他模型
+- `meta-llama/Meta-Llama-3.1-405B-Instruct`
+
+## 如何获取模型列表?
+你可以通过以下API接口获取完整的模型列表:
+```http
+GET /v1/models
+```
+
+响应示例:
+```json
+{
+  "data": [
+    {
+      "id": "model-id",
+      "object": "model",
+      "created": 1677610602,
+      "owned_by": "openai"
+    }
+  ],
+  "object": "list"
+}
