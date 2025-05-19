@@ -1,0 +1,117 @@
+
+<!-- Add the following in <head> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+```
+
+**Objective**:  
+- Enhance mobile responsiveness using a popular CSS framework  
+- Automatically optimize navigation menu display on small screens  
+- Improve visual presentation of paragraphs and lists  
+
+```html
+<!-- Modify the structure in <main> -->
+<main class="container py-4 mx-auto max-w-2xl">
+    <section>
+        <h2 class="text-2xl font-bold mb-3">AI and Data Privacy: Balancing Innovation and Protection</h2>
+        <p class="mb-4">...</p>
+        <!-- Add spacing control classes such as .mb-3 for paragraphs and lists -->
+    </section>
+</main>
+```
+
+---
+
+### **2. Fix Google AdSense Configuration**
+
+```html
+<!-- Modify the meta tag in the <head> -->
+<meta name="google-adsense-account" content="ca-pub-2524390523678591">
+<!-- Add to just before the end of <body> -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        crossorigin="anonymous"
+        data-ad-client="ca-pub-2524390523678591"></script>
+<!-- The original commented-out script tag has been removed -->
+```
+
+**Notes**:  
+- Adhere to Google policies: ad scripts must be loaded asynchronously using `async`  
+- Avoid inserting ads directly into article content; instead, use native ad formats  
+- Recommend adding the following meta tag to improve ad relevance:
+```html
+<meta name="google-adsense-host" content="ca-drt-2524390523678591">
+```
+
+---
+
+### **3. Implement Language Switching Functionality**
+
+```html
+<!-- Modify the language switch button structure -->
+<div class="language-switch">
+    <button id="languageToggle" 
+            class="btn btn-outline-primary"
+            onclick="toggleLanguage()">CN/EN</button>
+</div>
+
+<!-- Implement the switch logic in JavaScript -->
+<script>
+function toggleLanguage() {
+    const btn = document.getElementById('languageToggle');
+    const content = document.querySelector('main');
+    
+    if (btn.textContent.includes('CN')) {
+        btn.textContent = 'EN';
+        content.innerHTML = `
+            <section>
+                <h2 class="text-2xl font-bold mb-3">AI and Data Privacy: Balancing Innovation and Protection</h2>
+                <p>In the era of digital transformation...</p>
+                <!-- English content -->
+            `;
+    } else {
+        btn.textContent = 'CN';
+        content.innerHTML = `
+            <section>
+                <h2 class="text-2xl font-bold mb-3">AI and Data Privacy: Balancing Innovation and Protection</h2>
+                <p>In the era of digital transformation...</p>
+                <!-- Chinese content -->
+            `;
+    }
+}
+</script>
+```
+
+**Optimization Points**:  
+- Use semantic button elements  
+- Implement bilingual switching by dynamically replacing DOM content  
+- Can be extended for multilingual support by adding a JSON data source  
+
+---
+
+### **4. Improve Responsive Navigation Design**
+
+```html
+<!-- Use Bootstrap's navigation component for redesign -->
+<nav class="navbar navbar-expand-lg bg-light shadow-sm mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">AI Privacy Blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+```
+
+---
+
+### **5. Enhance SEO Optimization**
+
+```html
+<!-- Update header information -->
+<meta name="description" content="Explore balanced strategies for protecting data privacy in AI technology, and analyze the relationship between technological innovation and compliance">
+<meta name="keywords" content="artificial intelligence, data privacy, machine learning, compliance, encryption">
