@@ -1,0 +1,110 @@
+
+<!-- 在<head>中添加以下内容 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+```
+**目的**：  
+- 使用流行的CSS框架提升移动端适配性
+- 自动优化导航菜单在小屏幕时的显示效果
+- 改善段落、列表的视觉呈现
+
+```html
+<!-- 修改main中的结构 -->
+<main class="container py-4 mx-auto max-w-2xl">
+    <section>
+        <h2 class="text-2xl font-bold mb-3">人工智能与数据隐私：平衡创新与保护</h2>
+        <p class="mb-4">...</p>
+        <!-- 为段落和列表添加.mb-3等间距控制类 -->
+    </section>
+</main>
+```
+
+---
+
+### **2. 修复Google AdSense配置**
+```html
+<!-- 修改头部的meta -->
+<meta name="google-adsense-account" content="ca-pub-2524390523678591">
+<!-- 添加到<body>底部前 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        crossorigin="anonymous"
+        data-ad-client="ca-pub-2524390523678591"></script>
+<!-- 原注释的脚本标签已被移除 -->
+```
+**注意事项**：  
+- 遵守Google政策，广告脚本必须用`async`方式加载
+- 不建议在文章正文中直接插入广告，推荐使用原生广告格式
+- 建议添加以下元标签提高广告相关性：
+```html
+<meta name="google-adsense-host" content="ca-drt-2524390523678591">
+```
+
+---
+
+### **3. 实现语言切换功能**
+```html
+<!-- 修改语言切换按钮结构 -->
+<div class="language-switch">
+    <button id="languageToggle" 
+            class="btn btn-outline-primary"
+            onclick="toggleLanguage()">中/英</button>
+</div>
+
+<!-- 在JavaScript中实现切换逻辑 -->
+<script>
+function toggleLanguage() {
+    const btn = document.getElementById('languageToggle');
+    const content = document.querySelector('main');
+    
+    if (btn.textContent.includes('中')) {
+        btn.textContent = 'EN';
+        content.innerHTML = `
+            <section>
+                <h2 class="text-2xl font-bold mb-3">AI and Data Privacy: Balancing Innovation and Protection</h2>
+                <p>In the era of digital transformation...</p>
+                <!-- 英文版内容 -->
+            `;
+    } else {
+        btn.textContent = '中';
+        content.innerHTML = `
+            <section>
+                <h2 class="text-2xl font-bold mb-3">人工智能与数据隐私：平衡创新与保护</h2>
+                <p>在数字化转型时代...</p>
+                <!-- 中文版内容 -->
+            `;
+    }
+}
+</script>
+```
+**优化点**：  
+- 使用语义化按钮元素
+- 通过动态替换DOM内容实现双语切换
+- 可扩展为多语言支持，需增加JSON数据源
+
+---
+
+### **4. 改进页面导航响应式设计**
+```html
+<!-- 使用Bootstrap的导航组件重构 -->
+<nav class="navbar navbar-expand-lg bg-light shadow-sm mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">AI Privacy Blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+```
+
+---
+
+### **5. 增强SEO优化**
+```html
+<!-- 修改页头信息 -->
+<meta name="description" content="探讨人工智能技术在数据隐私保护中的平衡策略，分析技术革新与合规之间的关系">
+<meta name="keywords" content="人工智能,数据隐私,机器学习,合规性,加密技术">
