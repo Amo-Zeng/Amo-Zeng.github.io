@@ -1,0 +1,107 @@
+
+<!-- 删除广告代码或补充完整政策合规的脚本 -->
+<!-- 如果无需启用，删除以下内容 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+     crossorigin="anonymous"
+     data-ad-client="ca-pub-2524390523678591">
+</script>
+```
+
+---
+
+### **2. HTML 结构与可访问性优化**
+**优化点：**
+- 为导航链接添加 `aria-label` 以提高可访问性。
+- 确保 `<section>` 与 `<main>` 标签语义正确嵌套。
+
+**修改后示例：**
+```html
+<!-- 导航部分添加aria-label -->
+<nav aria-label="主要导航">
+  <ul class="nav-list">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="insights.html">洞察</a></li>
+    <!-- 其他链接 -->
+  </ul>
+</nav>
+```
+
+---
+
+### **3. JavaScript 函数补充**
+**需求：** 如果 `toggleLanguage()` 不存在，需补充基本逻辑。
+
+**添加到 `script.js`：**
+```javascript
+// script.js
+function toggleLanguage() {
+  const body = document.body;
+  if (body.classList.contains('english')) {
+    body.classList.remove('english');
+    body.classList.add('chinese');
+  } else {
+    body.classList.remove('chinese');
+    body.classList.add('english');
+  }
+}
+```
+
+---
+
+### **4. 链接与资源路径验证**
+**检查项：**
+- 确保以下文件存在且路径正确：
+  - `style.css`
+  - `script.js`
+  - 导航链接指向的页面（如 `index.html`, `insights.html` 等）。
+
+**建议添加路径验证注释（可选）：**
+```html
+<!-- 请确保以下资源路径正确：
+     - style.css
+     - script.js
+     - 导航链接目标页面（index.html, insights.html 等） -->
+```
+
+---
+
+### **5. 内容结构优化建议**
+**可选改进：**
+- 为内容区域添加 `article` 或 `div` 包裹，增强语义化。
+- 使用更清晰的列表结构呈现关键点（如 `<ol>` 用于步骤式内容）。
+
+---
+
+### **最终优化后的HTML关键部分**
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>人工智能与数据隐私</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 语言切换按钮 -->
+  <button class="language-switch" onclick="toggleLanguage()">切换语言</button>
+
+  <header>
+    <nav aria-label="主要导航">
+      <ul class="nav-list">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="insights.html">洞察</a></li>
+        <!-- 其他链接 -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>人工智能与数据隐私</h1>
+      <p>详细内容...</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
