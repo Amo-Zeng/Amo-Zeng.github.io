@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>城市可持续发展解决方案</title>
+    <meta name="keywords" content="生态城市, 智能交通, 可再生能源, 可持续发展">
+    <meta name="description" content="探索城市可持续发展的关键技术路径与实施策略">
+    <!-- 响应式设计 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/urban.css">
+</head>
+<body>
+    <!-- 语言切换悬浮按钮 -->
+    <div class="language-switch">
+        <button id="languageToggle" onclick="toggleLanguage()">中/En</button>
+    </div>
+
+    <!-- 页眉区 -->
+    <header>
+        <h1>未来城市可持续发展</h1>
+        <nav class="mobile-nav">
+            <a href="#section1">生态规划</a>
+            <a href="#section2">智能交通</a>
+            <a href="#section3">清洁能源</a>
+        </nav>
+    </header>
+
+    <!-- 主要内容模块 -->
+    <main>
+        <!-- 生态城市规划 -->
+        <section id="section1" class="strategy-section">
+            <h2>1. 生态城市规划</h2>
+            <div class="strategy-grid">
+                <div class="card">
+                    <h3>三维绿化系统</h3>
+                    <img src="img/greening.png" alt="垂直花园结构示意图">
+                    <p>通过建筑表面的立体绿化与地下雨水收集系统，有效调节城市微气候并提升生物多样性。</p>
+                </div>
+                <div class="card">
+                    <h3>碳中和规划</h3>
+                    <p>采用碳足迹评估模型指导新区建设，结合生态廊道设计构建城市级碳汇循环系统。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 智能交通系统 -->
+        <section id="section2">
+            <h2>2. 智能交通系统</h2>
+            <div class="data-visualization">
+                <canvas id="trafficMap" width="800" height="400"></canvas>
+                <p>实时交通热力图分析系统显示：通过优化信号灯时序，早高峰拥堵时间减少27%</p>
+            </div>
+            <div class="tech-breakdown">
+                <dl>
+                    <dt>自动驾驶车队</dt>
+                    <dd>部署L4级自动驾驶巴士，采用多源传感器融合技术</dd>
+                    <dt>智慧停车</dt>
+                    <dd>基于车牌识别的动态定价与空位指引系统</dd>
+                </dl>
+            </div>
+        </section>
+
+        <!-- 可再生能源 -->
+        <section id="section3">
+            <h2>3. 可再生能源利用</h2>
+            <div class="energy-matrix">
+                <figure>
+                    <img src="img/renewables.png" alt="风光发电设施分布">
+                    <figcaption>BIPV建筑一体化光伏系统年发电量分析</figcaption>
+                </figure>
+                <table class="energy-stats">
+                    <thead>
+                        <tr><th>能源类型</th><th>覆盖率</th><th>年减排量</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>太阳能</td><td>38%</td><td>52万吨CO₂</td></tr>
+                        <tr><td>风能</td><td>22%</td><td>28万吨CO₂</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- 案例展示 -->
+    <div class="case-study">
+        <h2>全球成功案例</h2>
+        <div class="case-carousel">
+            <!-- 动态加载案例内容 -->
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>©2024 CitySustain Initiative | <a href="#">可持续发展协议</a></p>
+    </footer>
+
+    <!-- 交互脚本 -->
+    <script src="js/urban.js"></script>
+</body>
+</html>
