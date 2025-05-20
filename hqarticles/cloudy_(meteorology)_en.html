@@ -1,0 +1,109 @@
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+     crossorigin="anonymous"
+     data-ad-client="ca-pub-2524390523678591">
+</script>
+```
+
+---
+
+### **2. HTML Structure & Accessibility Optimization**
+
+**Optimization Points:**
+- Add `aria-label` to navigation links for better accessibility.
+- Ensure correct semantic nesting of `<section>` and `<main>`.
+
+**Improved Example:**
+```html
+<!-- Add aria-label to navigation -->
+<nav aria-label="Main Navigation">
+  <ul class="nav-list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <!-- Other links -->
+  </ul>
+</nav>
+```
+
+---
+
+### **3. JavaScript Function Addition**
+
+**Requirement:** If `toggleLanguage()` is not present, add a basic implementation.
+
+**Add to `script.js`:**
+```javascript
+// script.js
+function toggleLanguage() {
+  const body = document.body;
+  if (body.classList.contains('english')) {
+    body.classList.remove('english');
+    body.classList.add('chinese');
+  } else {
+    body.classList.remove('chinese');
+    body.classList.add('english');
+  }
+}
+```
+
+---
+
+### **4. Link and Resource Path Validation**
+
+**Check List:**
+- Ensure the following files exist and paths are correct:
+  - `style.css`
+  - `script.js`
+  - Navigation target pages (e.g., `index.html`, `insights.html`, etc.)
+
+**Optional Path Validation Notice (as comment):**
+```html
+<!-- Please ensure the following file paths are correct:
+     - style.css
+     - script.js
+     - Navigation target pages (e.g., index.html, insights.html, etc.) -->
+```
+
+---
+
+### **5. Content Structure Optimization (Optional Improvement)**
+
+- Wrap content areas in `article` or `div` for better semantics.
+- Use clearer list structures for key points (e.g., `<ol>` for step-by-step content).
+
+---
+
+### **Final Optimized HTML (Key Sections)**
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Artificial Intelligence and Data Privacy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Language Toggle Button -->
+  <button class="language-switch" onclick="toggleLanguage()">Toggle Language</button>
+
+  <header>
+    <nav aria-label="Main Navigation">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <!-- Other links -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Artificial Intelligence and Data Privacy</h1>
+      <p>...detailed content...</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
