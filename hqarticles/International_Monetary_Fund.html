@@ -1,0 +1,66 @@
+
+  <li><strong>同态加密：</strong>允许数据在加密状态下处理，避免明文暴露。</li>
+  <li><strong>可信执行环境：</strong>通过硬件级隔离保护敏感计算过程。</li>
+  ```
+- **法规案例更新**  
+  添加中国《个人信息保护法》和加州CCPA的关键条款，增强地域适用性：
+  ```html
+  <p>除了GDPR外，中国于2021年实施的《个人信息保护法》明确禁止过度收集数据，并赋予个人数据删除权；美国加州CCPA则要求企业披露数据使用规则。</p>
+  ```
+
+#### **2. 代码调整**
+- **HTML结构优化**  
+  使用语义化标签（如`<article>`、`<aside>`）提升可读性：
+  ```html
+  <article>
+    <section>
+      <h2>AI对数据隐私的影响</h2>
+      <!-- 内容 -->
+    </section>
+  </article>
+  ```
+- **响应式设计**  
+  在`<head>`中添加视口meta标签和CSS媒体查询：
+  ```html
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  ```
+  并在CSS中添加：
+  ```css
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    nav a { display: block; margin: 5px 0; }
+  }
+  ```
+- **SEO优化**  
+  完善元标签，提升搜索引擎可见性：
+  ```html
+  <meta name="description" content="探讨人工智能技术如何影响数据隐私，并提出保护策略与合规建议。">
+  <meta name="keywords" content="人工智能, 数据隐私, 差分隐私, GDPR, 个人信息保护法">
+  ```
+
+#### **3. 链接与交互增强**
+- **导航栏高亮当前页面**  
+  使用CSS类标识当前页：
+  ```html
+  <nav>
+    <a href="index.html" class="active">首页</a>
+    <a href="about.html">关于</a>
+  </nav>
+  ```
+  并同步CSS样式：
+  ```css
+  .active { font-weight: bold; text-decoration: underline; }
+  ```
+
+#### **4. 广告代码占位符**  
+  如需保留Google AdSense位置，可替换为标准测试代码（需移除在生产环境）：
+  ```html
+  <!-- Google AdSense 示例代码 -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:15px"
+       data-ad-client="ca-pub-1234567890123456"
+       data-ad-slot="9876543210"></ins>
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  
