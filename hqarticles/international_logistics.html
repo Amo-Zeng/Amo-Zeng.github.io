@@ -1,0 +1,159 @@
+
+<section id="english-content">
+  <h1>Artificial Intelligence and Data Privacy</h1>
+  <p>...</p>
+</section>
+<section id="chinese-content" style="display: none;">
+  <h1>人工智能与数据隐私</h1>
+  <p>...</p>
+</section>
+```
+
+#### **JavaScript部分**
+实现`toggleLanguage()`函数，切换内容显示：
+```javascript
+function toggleLanguage() {
+  const english = document.getElementById('english-content');
+  const chinese = document.getElementById('chinese-content');
+  
+  if (english.style.display === 'none') {
+    english.style.display = 'block';
+    chinese.style.display = 'none';
+    document.getElementById('language-toggle').textContent = 'English';
+  } else {
+    english.style.display = 'none';
+    chinese.style.display = 'block';
+    document.getElementById('language-toggle').textContent = '中文';
+  }
+}
+```
+
+#### **按钮更新**
+确保按钮的id与JavaScript中对应：
+```html
+<button id="language-toggle" onclick="toggleLanguage()">English</button>
+```
+
+---
+
+### **2. 响应式设计优化**
+在`style.css`中添加媒体查询，确保移动端适配：
+```css
+@media (max-width: 768px) {
+  nav a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  button {
+    width: 100%;
+  }
+}
+```
+
+---
+
+### **3. 资源路径验证**
+确保以下文件存在于正确位置：
+```
+/ 
+├── assets/
+│   └── style.css
+│   └── script.js
+├── index.html
+├── about.html
+├── contact.html
+```
+如果路径不正确，调整为：
+```html
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/script.js"></script>
+```
+
+---
+
+### **4. Google AdSense 启用**
+根据AdSense政策启用脚本（需替换`AD_CLIENT`和`AD_SLOT`为实际值）：
+```html
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="AD_CLIENT"
+     data-ad-slot="AD_SLOT"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+```
+
+---
+
+### **5. 简易多语言支持优化**
+简化切换逻辑，使用JSON存储语言包：
+```javascript
+const lang = {
+  en: {
+    title: "Artificial Intelligence and Data Privacy",
+    content: "Artificial intelligence poses significant challenges to data privacy...",
+    navHome: "Home",
+    navAbout: "About",
+    navContact: "Contact"
+  },
+  zh: {
+    title: "人工智能与数据隐私",
+    content: "人工智能对数据隐私提出了重大挑战...",
+    navHome: "首页",
+    navAbout: "关于",
+    navContact: "联系"
+  }
+};
+
+function updateContent(langCode) {
+  document.title = lang[langCode].title;
+  document.querySelector('h1').textContent = lang[langCode].title;
+  document.querySelector('.content').textContent = lang[langCode].content;
+  document.getElementById('nav-home').textContent = lang[langCode].navHome;
+  // 更新其他导航链接...
+}
+```
+
+---
+
+### **6. 可访问性改进**
+为图片添加`alt`属性，增强可访问性：
+```html
+<img src="image.jpg" alt="人工智能数据流程示意图">
+```
+
+---
+
+### **7. 完整HTML结构优化**
+最终优化后的HTML结构示例：
+```html
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>人工智能与数据隐私</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header>
+    <h1 id="main-title">标题占位</h1>
+    <button id="language-toggle" onclick="toggleLanguage()">English</button>
+  </header>
+  
+  <nav>
+    <a id="nav-home" href="#home">Home</a>
+    <a id="nav-contact" href="#contact">Contact</a>
+  </nav>
+  
+  <main>
+    <section class="content">
+      <!-- 中英文内容通过JavaScript动态填充 -->
+    </section>
+  </main>
+  
+  <script src="script.js"></script>
+</body>
+</html>
