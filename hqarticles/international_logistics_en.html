@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artificial Intelligence and Data Privacy</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1 id="main-title">Artificial Intelligence and Data Privacy</h1>
+    <button id="language-toggle" onclick="toggleLanguage()">中文</button>
+  </header>
+
+  <nav>
+    <a id="nav-home" href="#home">Home</a>
+    <a id="nav-contact" href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section class="content" id="content-section">
+      <!-- 动态内容占位 -->
+    </section>
+  </main>
+
+  <footer>
+    <!-- 可选 AdSense 位 -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="YOUR_AD_CLIENT"
+         data-ad-slot="YOUR_AD_SLOT"
+         data-ad-format="auto"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </footer>
+
+  <script src="/assets/script.js"></script>
+</body>
+</html>
+```
+
+---
+
+## ✅ **JavaScript 优化代码（script.js）**
+```javascript
+const langs = {
+  en: {
+    title: "Artificial Intelligence and Data Privacy",
+    content: "Artificial intelligence poses significant challenges to data privacy protection. As algorithms improve and data usage deepens, it becomes increasingly important to safeguard personal and sensitive information. This article explores the current landscape of AI data challenges and best practices in maintaining privacy...",
+    navHome: "Home",
+    navContact: "Contact"
+  },
+  zh: {
+    title: "人工智能与数据隐私",
+    content: "人工智能的发展给数据隐私带来了重大挑战。随着算法不断进步，数据的使用日益深入，保护个人信息和敏感数据变得尤为重要。本文探讨当前AI数据处理面临的问题以及维护隐私的最佳实践...",
+    navHome: "首页",
+    navContact: "联系"
+  }
+};
+
+function updateContent(langCode) {
+  const lang = langs[langCode];
+  document.title = lang.title;
+  document.getElementById("main-title").textContent = lang.title;
+  document.getElementById("content-section").textContent = lang.content;
+
+  document.getElementById("nav-home").textContent = lang.navHome;
+  document.getElementById("nav-contact").textContent = lang.navContact;
+}
+
+let currentLang = 'zh';
+let toggleButtonText = {
+  zh: 'English',
+  en: '中文'
+};
+
+function toggleLanguage() {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  document.getElementById("language-toggle").textContent = toggleButtonText[currentLang];
+  updateContent(currentLang);
+}
+```
+
+---
+
+## ✅ **CSS 文件（style.css）**
+```css
+/* 基础样式 */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #007BFF;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #0056b3;
+  padding: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0 10px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #003e7c;
+  border-radius: 5px;
+}
+
+.content {
+  padding: 2rem;
+  background-color: white;
+  max-width: 900px;
+  margin: 2rem auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+footer {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
