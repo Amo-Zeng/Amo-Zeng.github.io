@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>哈勃太空望远镜 - 2AGI.me</title>
+    <meta name="keywords" content="哈勃望远镜, 天文物理, 科技成就">
+    <meta name="description" content="探索哈勃太空望远镜的科学任务、技术突破与宇宙观测成就。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle" onclick="toggleLanguage()"></button>
+    </div>
+    <header>
+        <h1>天文科技</h1>
+        <h2>哈勃太空望远镜</h2>
+    </header>
+    <main>
+        <section>
+            <h3>发现宇宙的奇迹</h3>
+            <p>哈勃太空望远镜（Hubble Space Telescope, HST）由美国国家航空航天局（NASA）和欧洲空间局（ESA）联合研发，于1990年4月24日由航天飞机“发现号”（Discovery）成功发射升空。</p>
+        </section>
+        <section>
+            <h3>任务与设计</h3>
+            <p>哈勃望远镜的主要目标是：研究暗能量与宇宙膨胀、观测行星和恒星的形成、探索星系演化历史，并为地面望远镜和未来任务（如詹姆斯·韦布望远镜）提供数据支持。</p>
+        </section>
+        <section>
+            <h3>科学突破</h3>
+            <ul>
+                <li>首次精确测量宇宙膨胀速度</li>
+                <li>揭示银河系中心的超大质量黑洞</li>
+                <li>捕捉星云碰撞、行星大气逃逸等动态现象</li>
+            </ul>
+        </section>
+        <section>
+            <h3>挑战与升级</h3>
+            <p>哈勃在部署初期因主镜形变导致观测模糊，后通过宇航员5次维修任务成功修正，其主镜直径2.4米，搭载先进相机和光谱仪，已累计运行34年。</p>
+        </section>
+    </main>
+    <footer>
+        <nav>
+            <a href="ai_privacy.html">返回人工智能与隐私讨论页</a>
+        </nav>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>
+```
+
+---
+
+### **页面2：人工智能与数据隐私（现有优化建议）**
+#### **代码调整点：**
+1. **启用AdSense脚本**（需用户注册广告ID后启用）：
+   - 解析注释掉的脚本：
+     ```html
+     <!-- 
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+     crossorigin="anonymous"></script>
+     -->
+     ```
+   - 移除注释并替换`ca-pub-XXXXXXXXXXXXXXXX`为实际的AdSense账户ID。
+
+2. **语言切换功能实现**（在`script.js`中添加）：
+   ```javascript
+   function toggleLanguage() {
+       const isEnglish = document.documentElement.lang === 'en-US';
+       const title = document.querySelector('h2');
+       const content = document.querySelectorAll('p, h3, ul');
+       
+       if (isEnglish) {
+           document.documentElement.lang = 'zh-CN';
+           title.textContent = '人工智能与数据隐私';
+           // 动态替换其他汉文内容...
+       } else {
+           document.documentElement.lang = 'en-US';
+           title.textContent = 'AI & Data Privacy';
+           // 动态替换其他英文内容...
+       }
+   }
+   ```
+
+3. **SEO优化元数据**：
+   - 添加Open Graph标签以便社交媒体分享预览：
+     ```html
+     <meta property="og:title" content="人工智能与数据隐私 - 2AGI.me">
+     <meta property="og:description" content="探讨人工智能技术发展中的数据隐私保护与伦理挑战。">
+     <meta property="og:image" content="https://example.com/path/to/cover-image.jpg">
+     ```
+
+---
+
+### **整合导航系统**
+1. **统一页眉导航栏**（添加在`header`中）：
+   ```html
+   <nav>
+       <a href="hubble.html">哈勃望远镜</a> |
+       <a href="ai_privacy.html">AI与隐私</a> |
+       <a href="index.html">首页</a>
+   </nav>
+   ```
+
+2. **页脚返回链接**（在哈勃页面添加返回AI页面的链接，反之亦然）：
+   ```html
+   <footer>
+       <p>© 2023 2AGI科技资讯 | <a href="privacy.html">隐私政策</a></p>
+   </footer>
+   
