@@ -1,0 +1,118 @@
+
+<button id="languageToggle" onclick="toggleLanguage()" ontouchstart="toggleLanguage()">
+```
+
+---
+
+### 3. **Check for Ad Script Interference**
+   - If Google AdSense ads are enabled, there may be issues with element overlap or blocked interactions:
+     - **Adjust ad script placement**: Ensure ad containers do not excessively extend above or below the button.
+     - **Use `z-index` for layering**: Make sure the `.language-switch` button has a significantly higher `z-index` than ad areas.
+
+---
+
+### 4. **Test Button Functionality**
+   - **Debug click events**:
+     - Add `console.log` output in the `toggleLanguage()` function and use the browser's mobile device emulator to check for logs after clicking.
+   - **Check button styling**: Confirm the button is not cropped or transparent on mobile, preventing clicks.
+
+---
+
+### 5. **Complete Fix Code Example**
+   - **HTML (key parts preserved)**:
+     ```html
+     <div class="language-switch">
+         <button id="languageToggle" onclick="toggleLanguage()" ontouchstart="toggleLanguage()">
+             English
+         </button>
+     </div>
+     ```
+
+   - **CSS (fix overlap)**:
+     ```css
+     .language-switch {
+         position: relative;
+         z-index: 1000; /* Ensure button stays above other content */
+     }
+
+     .language-switch button {
+         /* Ensure proper button styling */
+         padding: 10px;
+         background-color: #007bff;
+         color: white;
+         border: none;
+         cursor: pointer;
+         border-radius: 4px;
+     }
+     ```
+
+   - **script.js**:
+     ```javascript
+     function toggleLanguage() {
+         const button = document.getElementById("languageToggle");
+         if (button.textContent === "English") {
+             button.textContent = "中文";
+         } else {
+             button.textContent = "English";
+         }
+         console.log("Language toggled"); // Debug output
+     }
+     ```
+
+---
+
+### Main Content Translation (Excerpts):
+
+#### **1. Precision Medication: From Genetic Testing to Dynamic Dosing**
+   - **Clinical Evidence**:
+     - MD Anderson Cancer Center reduced severe adverse reactions to targeted drugs by 37% (2022 *JCO* data) through pharmacist-led EGFR/ALK genetic test interpretation and dynamic dosing models.
+     - **Tech Breakthrough**: Warfarin CYP2C9/VKORC1 genotype algorithms cut INR达标时间 (time to reach target INR) by 60%, with AI-assisted systems achieving 98.6% drug interaction accuracy (UCSF MediMap platform).
+
+#### **2. Biomarker-Driven Dynamic Monitoring**
+   - **Emerging Practice**: MIT's "Drug Digital Twin" platform predicts immunotherapy toxicity 72 hours in advance (89% accuracy) via real-time biosensor data.
+   - **Skill Requirement**: Clinical pharmacists must master cross-disciplinary skills like NGS data analysis and PK/PD modeling.
+
+#### **3. Full-Cycle Health Management: Breaking Spatiotemporal Barriers**
+   - Mayo Clinic's "3-2-1" Transition Care Model:
+     - Medication reconciliation 72h pre-discharge
+     - Smart follow-up within 48h post-discharge
+     - APP-based adherence monitoring
+     - **Outcome**: 28% reduction in 30-day readmission for heart failure patients.
+
+#### **4. Risk Governance: Proactive Drug Safety Networks**
+   - **Graded Response Systems**:
+     - UPenn's CRS management protocol (pharmacist-led tocilizumab stepwise dosing) maintains severe CRS incidence at <5%.
+   - **Smart Monitoring**:
+     - Japan's drug safety database uses NLP to accelerate adverse event detection by 6x.
+
+#### **5. Ethical Decision-Making in Resource Constraints**
+   - **Ontario’s Targeted Drug Allocation Framework**:
+     | Dimension       | Tool           | Weight |
+     |----------------|----------------|--------|
+     | Clinical Urgency | ESMO-MCBS Score | 35%    |
+     | Evidence Level  | GRADE System   | 25%    |
+     | Cost-Effectiveness | QALY Analysis | 30%    |
+     | Equity          | Gini Coefficient Adjustment | 10%    |
+
+#### **6. Future Competency Map (2030 Vision)**
+   - **Tech Integration**: Master bioinformatics and healthcare big data; explore blockchain drug tracking.
+   - **Global Governance**: Participate in WHO pharmacovigilance programs; study EU GDPR compliance.
+
+#### **Conclusion**
+Clinical pharmacists are transitioning from "medication suppliers" to "healthcare architects." By integrating biomarker interpretation, systemic risk management, and resource optimization, they will redefine medical safety in the AI/基因 editing era. The next five years mark a golden age for clinical pharmacy’s value creation.
+
+---
+
+### Navigation & Footer (Unchanged Structure):
+```html
+<nav>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../insights.html">Healthcare Insights</a></li>
+        <li><a href="../updates.html">Updates</a></li>
+        <li><a href="../join.html">Join Us</a></li>
+    </ul>
+</nav>
+<footer>
+    <p>&copy; 2024 2AGI.me | All Rights Reserved</p>
+</footer>
