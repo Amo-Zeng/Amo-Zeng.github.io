@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Triple Revolution of Real-Time Communication: Edge Computing, AI Intelligence & End-to-End Security | 2AGI.me</title>
+    <meta name="keywords" content="Real-Time Communication,RTC,Edge Computing,Artificial Intelligence,End-to-End Encryption,AI Communication Technology">
+    <meta name="description" content="In-depth exploration of RTC's triple revolution: Edge computing infrastructure innovation, AI-optimized experiences, and end-to-end security encryption. Revealing future communication trends.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --secondary: #1d4ed8;
+            --accent: #60a5fa;
+            --light: #dbeafe;
+            --dark: #1e3a8a;
+            --text: #1f2937;
+            --background: #eff6ff;
+            --section-bg: #ffffff;
+            --header-height: 80px;
+            --header-bg: linear-gradient(135deg, #2563eb, #1d4ed8);
+            --border-radius: 10px;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            padding-top: var(--header-height);
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: var(--dark);
+            margin: 1.5rem 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            margin-top: 2.5rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        #languageToggle {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-weight: bold;
+            box-shadow: var(--box-shadow);
+        }
+        
+        header {
+            background: var(--header-bg);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            height: var(--header-height);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0;
+            padding-bottom: 0.25rem;
+        }
+        
+        header h2 {
+            color: var(--light);
+            font-size: 1.2rem;
+            font-weight: 500;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            background: var(--section-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            transition: var(--transition);
+        }
+        
+        section:hover::before {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+        
+        .intro-block {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+        
+        .intro-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.15)" stroke-width="2" fill="none"/></svg>');
+            background-size: 80px;
+            opacity: 0.3;
+        }
+        
+        .intro-block h1 {
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: white;
+            text-align: left;
+        }
+        
+        .intro-block p {
+            max-width: 800px;
+            font-size: 1.1rem;
+            opacity: 0.92;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        
+        li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+        
+        ol > li:before {
+            background: none;
+            color: var(--primary);
+            content: counter(ordered-list) ".";
+            width: auto;
+            height: auto;
+            font-weight: bold;
+            padding-right: 0.5rem;
+        }
+        
+        ol {
+            counter-reset: ordered-list;
+        }
+        
+        ol > li {
+            counter-increment: ordered-list;
+        }
+        
+        strong {
+            color: var(--secondary);
+        }
+        
+        .tech-diagram {
+            background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .tech-diagram h4 {
+            margin-top: 0;
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+        
+        .scenario-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .scenario-card {
+            flex: 1;
+            min-width: 240px;
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+        }
+        
+        .scenario-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scenario-card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin: 0 0 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .trend-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .trend-item {
+            background: linear-gradient(to right bottom, #f8fafc, #f1f5f9);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            position: relative;
+            padding-left: 3.2rem;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .trend-number {
+            position: absolute;
+            left: 1.5rem;
+            top: 1.5rem;
+            background: var(--primary);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .tech-stack {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 极光AI.com1.5rem 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .tech-level {
+            display: flex;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #d1d5db;
+            align-items: baseline;
+        }
+        
+        .tech-level:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+极光AI.com        }
+        
+        .level-label {
+            min-width: 120px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .evolution-stages {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+        
+        .evolution-stage {
+            min-width: 250px;
+            padding: 1.5rem;
+            background: #f3f4f6;
+            border-radius: var(--border-radius);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .evolution-stage h4 {
+            margin-top: 0;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            list-style: none;
+            padding: 0;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li:before {
+            display: none;
+        }
+        
+        nav a {
+            display: inline-block;
+            color: white;
+            background: var(--primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text);
+            background-color: white;
+            margin-top: 2rem;
+            border-top: 1px solid #d1d5db;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            main {
+                padding: 1.5rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .intro-block {
+                padding: 2rem 1.5rem;
+            }
+            
+            .intro-block h1 {
+                font-size: 1.8rem;
+            }
+            
+            .trend-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .evolution-stages {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle">EN</button>
+    </div>
+    
+    <header>
+        <h1>Evolution of Real-Time Communication Technology</h1>
+        <h2>Edge Computing · AI Intelligence · End-to-End Security</h2>
+    </header>
+    
+    <main>
+        <div class="intro-block">
+            <h1>The Triple Revolution of Real-Time Communication (RTC)</h1>
+            <p>Convergent Evolution of Edge Computing, AI Intelligence, and End-to-End Security</p>
+        </div>
+        
+        <section>
+            <p>Real-Time Communication (RTC) technology is undergoing an unprecedented transformation driven by three major technological trends: infrastructure innovation through edge computing, experience optimization via artificial intelligence, and security assurance through end-to-end encryption. This article explores the latest RTC developments across these three dimensions, revealing how they collectively shape the next-generation real-time communication ecosystem.</p>
+        </section>
+        
+        <section>
+            <h2>Part 1: Architectural Revolution – Edge Computing Reconstructs RTC Infrastructure</h2>
+            
+            <h3>1.1 Limitations of Centralized Architecture and the Rise of Edge Computing</h3>
+            <p>Traditional RTC relied on centralized cloud architectures that struggle with modern real-time communication demands. The necessity for data to travel from user devices to central cloud servers and back inevitably creates increased latency, higher costs, and inefficient resource utilization.</p>
+            
+            <p>Edge computing provides innovative solutions by bringing computation, storage, and networking resources closer to users and devices. Deploying RTC processing nodes at the network edge achieves:</p>
+            <ul>
+                <li><strong>Latency Revolution</strong>: End-to-end delays reduced from hundreds to tens of milliseconds, enabling new interaction possibilities</li>
+                <li><strong>Stability Breakthrough</strong>: Distributed node architecture eliminates single points of failure</li>
+                <li><strong>Efficiency Leap</strong>: Reduced central cloud load and bandwidth pressure with optimized resource utilization</li>
+            </ul>
+            
+            <div class="tech-diagram">
+                <h4>Edge Computing Architecture Diagram</h4>
+                <p>User Devices &lt;-> Edge Nodes (Low-Latency Processing) &lt;-> Central Cloud (Core Resources)</p>
+            </div>
+            
+            <h3>1.2 Emerging RTC Applications Empowered by Edge</h3>
+            <p>The convergence of edge computing and RTC enables innovative applications:</p>
+            
+            <div class="scenario-layout">
+                <div class="scenario-card">
+                    <h4>Immersive Metaverse Interactions</h4>
+                    <p>VR communication requires ultra-low latency (&lt;50ms) to prevent motion sickness. Edge processing enables natural lip-sync and haptic feedback.</p>
+                </div>
+                <div class="scenario-card">
+                    <h4>Mission-Critical Remote Control</h4>
+                    <p>In autonomous vehicles and remote surgeries, edge RTC ensures control signal/sensor round-trip latency &lt;10ms for life-safety applications.</p>
+                </div>
+                <div class="scenario-card">
+                    <h4>Large-Scale Real-Time Interactions</h4>
+                    <p>Edge nodes distribute computational load, enabling smooth experiences for massive events (10,000+ participants) while reducing central bandwidth costs by ≥60%.</p>
+                </div>
+            </div>
+            
+            <h3>1.3 Technical Challenges and Collaborative Innovation</h3>
+            <p>Edge RTC development faces challenges including constrained edge resources and complex network topologies. Solutions require synergy with technologies like 5G and AI:</p>
+            <ul>
+                <li><strong>5G Network Slicing</strong>: Provides dedicated communication channels guaranteeing QoS</li>
+                <li><strong>AI-Driven Resource Allocation</strong>: Predicts traffic peaks and dynamically allocates edge resources</li>
+                <li><strong>Lightweight Media Processing</strong>: Develops low-power codec algorithms for edge devices</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Part 2: Experience Revolution – AI-Driven Intelligent RTC Transformation</h2>
+            
+            <h3>2.1 Paradigm Shift: From "Transmission Pipe" to "Intelligent Agent"</h3>
+            <p>Traditional RTC systems functioned as passive data pipes without content understanding. AI transforms RTC into "intelligent communication agents" with contextual awareness and optimization capabilities:</p>
+            <ul>
+                <li><strong>Network Intelligence</strong>: ML models predict network fluctuations for adaptive transmission</li>
+                <li><strong>Content Understanding</strong>: CV identifies key visual regions; audio AI separates speech from noise</li>
+                <li><strong>Enhanced Interactions</strong>: Emotion recognition, real-time translation, and auto-summarization integrate multimodal capabilities</li>
+            </ul>
+            
+            <h3>2.2 Intelligent RTC Architecture</h3>
+            <p>Modern intelligent RTC systems implement layered AI capabilities:</p>
+            <div class="tech-stack">
+                <div class="tech-level">
+                    <span class="level-label">1. Perception Layer</span>
+                    <span>Network quality monitoring, A/V content analysis</span>
+                </div>
+                <div class="tech-level">
+                    <span class="level-label">2. Cognitive Layer</span>
+                    <span>Speech recognition, emotion computation, context understanding</span>
+                </div>
+                <div class="tech-level">
+                    <span class="level-label">3. Decision Layer</span>
+                    <span>Adaptive encoding, intelligent routing, interaction enhancement</span>
+                </div>
+                <div class="tech-level">
+                    <span class="level-label">4. Application Layer</span>
+                    <span>Domain-specific functions (meeting assistance, educational assessment, medical diagnostics)</span>
+                </div>
+            </div>
+            
+            <h3>2.3 Scenario-Based Intelligence Breakthroughs</h3>
+            <p>Intelligent RTC demonstrates unique value across applications:</p>
+            <ul>
+                <li><strong>Remote Collaboration</strong>: AI auto-focus on speakers, background blur, and meeting summaries improve team efficiency by 40%</li>
+                <li><strong>Online Education</strong>: Attention analysis and proficiency assessment provide real-time feedback, enhancing personalized learning by 35%</li>
+                <li><strong>Smart Healthcare</strong>: Medical imaging analysis and micro-expression recognition improve diagnostic accuracy by 25%</li>
+            </ul>
+            
+            <极光AI.comh3>2.4 Edge-AI Synergy</h3>
+            <p>Edge computing provides the ideal deployment environment for AI RTC:</p>
+            <ul>
+                <li><strong>Low-Latency Inference</strong>: On-edge AI models eliminate cloud round-trip delays</li>
+                <li><strong>Privacy Protection</strong>: Sensitive data processed locally minimizes transmission risks</li>
+                <li><strong>Elastic Scaling</strong>: Distributed edge nodes support dynamic AI workloads</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Part 3: Security Revolution – End-to-End Encryption for RTC Privacy</h2>
+            
+            <h3>3.1 Emerging Security Challenges and Requirements</h3>
+            <p>RTC privacy faces unique constraints:</p>
+            <ul>
+                <li><strong>Real-Time Requirements</strong>: Encryption/decryption must complete within milliseconds</li>
+                <li><strong>Multi-Party Participation</strong>: Complex key management for group communications</li>
+                <li><strong>Device Heterogeneity</strong>: Varying security capabilities across endpoints</li>
+            </ul>
+            <p>Traditional TLS security proves inadequate, making end-to-end encryption (E2EE) essential.</p>
+            
+            <h3>3.2 End-to-End Encryption Breakthroughs</h3>
+            <p>Modern RTC E2EE implementations enable:</p>
+            <ul>
+                <li><strong>Efficient Group Key Management</strong>: Double Ratchet and TreeKEM protocols reduce key negotiation from seconds to milliseconds</li>
+                <li><strong>Hardware-Accelerated Encryption</stron极光AI.comg>: AES-NI instructions and GPU acceleration cut encryption latency by 80%, supporting 4K real-time video</li>
+                <li><strong>Endpoint Hardening</strong>: Trusted Execution Environments (TEE) secure keys through generation, storage, and usage cycles</li>
+            </ul>
+            
+            <h3>3.3 Balancing Security and Performance</h3>
+            <p>Optimal security-performance balance requires technical innovations:</p>
+            <div class="evolution-stages">
+                <div class="evolution-stage">
+                    <h4>Adaptive Encryption</h4>
+                    <p>Dynamically adjusts encryption strength based on network conditions to maintain connection integrity.</p>
+                </div>
+                <div class="evolution-stage">
+                    <h4>Layered Security Architecture</h4>
+                    <p>Applies graduated encryption strategies to streams, signaling, and metadata.</p>
+                </div>
+                <div class="evolution-stage">
+                    <h4>Edge Security Coordination</h4>
+                    <p>Edge nodes handle non-sensitive computations while core encryption remains endpoint-based.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Part 4: Technological Convergence and Future Outlook</h2>
+            
+            <h3>4.1 The Multiplier Effect of Convergence</h3>
+            <p>Edge computing, AI, and E2EE security synergize to create compound value:</p>
+            <ul>
+                <li><strong>Edge AI</strong>: Lightweight AI models deployed at edge nodes enable low-latency intelligence</li>
+                <li><strong>Security AI</strong>: AI-powered anomaly detection enhances threat protection</li>
+                <li><strong>Secure Edge</strong>: Edge nodes function as security gatekeepers implementing zero-trust frameworks</li>
+            </ul>
+            
+            <h3>4.2 Six Future RTC Trends</h3>
+            <div class="trend-list">
+                <div class="trend-item">
+                    <div class="trend-number">1</div>
+                    <strong>Holographic Communication</strong>
+                    <p>Light-field displays and haptic feedback enable multi-sensory immersion</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">2</div>
+                    <strong>Autonomous Networks</strong>
+                    <p>AI automatically optimizes edge resource allocation and network paths</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">3</div>
+                    <strong>Quantum-Safe Encryption</strong>
+                    <p>Quantum-resistant algorithms protect against future computing threats</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">4</div>
+                    <strong>Cognitive Communication</strong>
+                    <p>Systems understand user intent to proactive极光AI.comly optimize delivery</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">5</div>
+                    <strong>Decentralized Architectures</strong>
+                    <p>Blockchain enables fully distributed RTC networks</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">6</div>
+                    <strong>Ambient Computing</strong>
+                    <p>RTC capabilities integrate seamlessly into physical environments</p>
+                </div>
+            </div>
+            
+            <h3>4.3 Operator Implementation Guide</h3>
+            <p>For web administrators, adopting these RTC advances is critical:</p>
+            <ol>
+                <li><strong>Scenario Assessment</strong>: Identify key real-time interaction scenarios in your operations</li>
+                <li><strong>Technology Selection</strong>: Choose appropriate combinations based on latency, intelligence, and security needs</li>
+                <li><strong>Phased Implementation</strong>: Roll out edge nodes, AI capabilities, and E2EE encryption incrementally</li>
+                <li><strong>Performance Monitoring</strong>: Implement comprehensive QoE (Quality of Experience) metrics</li>
+                <li><strong>Compliance Assurance</strong>: Maintain alignment with regulations including GDPR</li>
+            </ol>
+        </section>
+        
+        <section>
+            <h2>Conclusion: The New Era of "Intelligent Edge Security" RTC</h2>
+            <p>RTC technology is transforming from a transmission tool to a comprehensive communication platform. Edge computing redefines infrastructure, AI provides intelligent capabilities, and E2EE establishes security foundations. These three revolutions create a synergistic "1+1+1>3" impact rather than merely additive improvements.</p>
+            
+            <p>The future is here: RTC evolves beyond human-to-human connection to become the nervous system of digital society. By embracing these converging technologies, we collectively advance into a new era of "intelligent edge security"—creating more seamless, intelligent, and secure digital interactions.</p>
+        </section>
+        
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../insights.html">Technical Insights</a></li>
+                <li><a href="../updates.html">Latest Updates</a></li>
+                <li><a href="../join.html">Join Us</a></li>
+            </ul>
+        </nav>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 2AGI.me | Exploring the Future of Communication Technology</p>
+    </footer>
+    
+    <script>
+        // Simple language toggle functionality
+        function toggleLanguage() {
+            const toggleBtn = document.getElementById('languageToggle');
+            const currentLang = toggleBtn.textContent;
+            
+            // Simulate language switch (in actual implementation should reload page)
+            if (currentLang === 'EN') {
+                toggleBtn.textContent = '中';
+                alert('Switching to Chinese mode (demo)');
+            } else {
+                toggleBtn.textContent = 'EN';
+                alert('Switching to English mode (demo)');
+            }
+        }
+        
+        // Add smooth scrolling to all headings
+        document.querySelectorAll('h2, h3').forEach(heading => {
+            heading.addEventListener('click', () => {
+                const id = heading.textContent.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-');
+                history.replaceState(null, null, `#${id}`);
+                heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            
+            // Add hover effects indicating clickability
+            heading.style.cursor = 'pointer';
+            heading.style.textDecoration = 'underline transparent';
+            heading.style.transition = 'text-decoration 0.3s';
+            
+            heading.addEventListener('mouseenter', () => {
+                heading.style.textDecoration = 'underline';
+                heading.style.textDecorationColor = 'var(--accent)';
+            });
+            
+            heading.addEventListener('mouseleave', () => {
+                heading.style.textDecoration = 'underline transparent';
+            });
+        });
+        
+        // Handle anchor links on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (location.hash) {
+                setTimeout(() => {
+                    const id = location.hash.substring(1);
+                    const element = document.getElementById(id);
+                    if (element) element.scrollIntoView();
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>
