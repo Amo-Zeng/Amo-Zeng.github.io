@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>实时通信的三重革命:边缘计算、AI智能与端到端安全 | 2AGI.me</title>
+    <meta name="keywords" content="实时通信,RTC,边缘计算,人工智能,端到端加密,AI通信技术">
+    <meta name="description" content="深入探讨RTC技术的三重革命：边缘计算架构革新、人工智能体验优化和端到端安全加密，揭示未来通信技术的发展趋势">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --secondary: #1d4ed8;
+            --accent: #60a5fa;
+            --light: #dbeafe;
+            --dark: #1e3a8a;
+            --text: #1f2937;
+            --background: #eff6ff;
+            --section-bg: #ffffff;
+            --header-height: 80px;
+            --header-bg: linear-gradient(135deg, #2563eb, #1d4ed8);
+            --border-radius: 10px;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            padding-top: var(--header-height);
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: var(--dark);
+            margin: 1.5rem 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            margin-top: 2.5rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        #languageToggle {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-weight: bold;
+            box-shadow: var(--box-shadow);
+        }
+        
+        header {
+            background: var(--header-bg);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            height: var(--header-height);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0;
+            padding-bottom: 0.25rem;
+        }
+        
+        header h2 {
+            color: var(--light);
+            font-size: 1.2rem;
+            font-weight: 500;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            background: var(--section-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            transition: var(--transition);
+        }
+        
+        section:hover::before {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+        
+        .intro-block {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+        
+        .intro-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.15)" stroke-width="2" fill="none"/></svg>');
+            background-size: 80px;
+            opacity: 0.3;
+        }
+        
+        .intro-block h1 {
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: white;
+            text-align: left;
+        }
+        
+        .intro-block p {
+            max-width: 800px;
+            font-size: 1.1rem;
+            opacity: 0.92;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        
+        li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+        
+        ol > li:before {
+            background: none;
+            color: var(--primary);
+            content: counter(ordered-list) ".";
+            width: auto;
+            height: auto;
+            font-weight: bold;
+            padding-right: 0.5rem;
+        }
+        
+        ol {
+            counter-reset: ordered-list;
+        }
+        
+        ol > li {
+            counter-increment: ordered-list;
+        }
+        
+        strong {
+            color: var(--secondary);
+        }
+        
+        .tech-diagram {
+            background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .tech-diagram h4 {
+            margin-top: 0;
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+        
+        .scenario-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .scenario-card {
+            flex: 1;
+            min-width: 240px;
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+        }
+        
+        .scenario-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scenario-card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin: 0 0 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .trend-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .trend-item {
+            background: linear-gradient(to right bottom, #f8fafc, #f1f5f9);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            position: relative;
+            padding-left: 3.2rem;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .trend-number {
+            position: absolute;
+            left: 1.5rem;
+            top: 1.5rem;
+            background: var(--primary);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .tech-stack {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .tech-level {
+            display: flex;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #d1d5db;
+            align-items: baseline;
+        }
+        
+        .tech-level:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .level-label {
+            min-width: 120px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .evolution-stages {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+        
+        .evolution-stage {
+            min-width: 250px;
+            padding: 1.5rem;
+            background: #f3f4f6;
+            border-radius: var(--border-radius);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .evolution-stage h4 {
+            margin-top: 0;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            list-style: none;
+            padding: 0;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li:before {
+            display: none;
+        }
+        
+        nav a {
+            display: inline-block;
+            color: white;
+            background: var(--primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text);
+            background-color: white;
+            margin-top: 2rem;
+            border-top: 1px solid #d1d5db;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            main {
+                padding: 1.5rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .intro-block {
+                padding: 2rem 1.5rem;
+            }
+            
+            .intro-block h1 {
+                font-size: 1.8rem;
+            }
+            
+            .trend-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .evolution-stages {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle">中</button>
+    </div>
+    
+    <header>
+        <h1>实时通信技术演进</h1>
+        <h2>边缘计算·AI智能·端到端安全</h2>
+    </header>
+    
+    <main>
+        <div class="intro-block">
+            <h1>实时通信（RTC）的三重革命</h1>
+            <p>边缘计算、AI智能与端到端安全的融合演进</p>
+        </div>
+        
+        <section>
+            <p>实时通信（RTC）技术正在经历一场前所未有的变革，这场变革由三大技术趋势共同驱动：边缘计算的架构革新、人工智能的体验优化，以及端到端加密的安全保障。本文将从这三个维度深入探讨RTC技术的最新发展，揭示它们如何共同塑造下一代实时通信的生态系统。</p>
+        </section>
+        
+        <section>
+            <h2>第一部分：架构革命——边缘计算重构RTC基础设施</h2>
+            
+            <h3>1.1 中心化架构的瓶颈与边缘计算的崛起</h3>
+            <p>传统RTC技术依赖于中心化云计算架构，这种架构在应对现代实时通信需求时暴露出明显不足。数据需要从用户设备传输到中心云服务器再返回，这种"长途跋涉"不可避免地导致延迟增加、成本上升和资源利用率低下。</p>
+            
+            <p>边缘计算的兴起为解决这些问题提供了全新思路。通过将计算、存储和网络资源下沉到网络边缘，靠近用户和设备，RTC处理节点得以就近部署，实现了：</p>
+            <ul>
+                <li><strong>延迟革命</strong>：端到端延迟从数百毫秒降至几十毫秒，为实时互动创造全新可能</li>
+                <li><strong>稳定性突破</strong>：分布式节点架构避免单点故障，提升服务可靠性</li>
+                <li><strong>效率跃升</strong>：减轻中心云负载，降低带宽压力，优化资源利用率</li>
+            </ul>
+            
+            <div class="tech-diagram">
+                <h4>边缘计算架构示意图</h4>
+                <p>用户设备 &lt;-> 边缘节点（低延迟处理） &lt;-> 中心云服务器（核心资源）</p>
+            </div>
+            
+            <h3>1.2 边缘赋能的RTC新场景</h3>
+            <p>边缘计算与RTC的融合催生了一系列创新应用场景：</p>
+            
+            <div class="scenario-layout">
+                <div class="scenario-card">
+                    <h4>沉浸式元宇宙交互</h4>
+                    <p>虚拟现实中的实时交流需要极低延迟（&lt;50ms）才能避免"晕动症"，边缘节点处理使虚拟世界的唇音同步和触觉反馈达到自然水平。</p>
+                </div>
+                <div class="scenario-card">
+                    <h4>关键任务远程操控</h4>
+                    <p>在自动驾驶、远程手术等场景中，边缘RTC确保控制信号和传感器数据的往返延迟&lt;10ms，满足生命安全级应用需求。</p>
+                </div>
+                <div class="scenario-card">
+                    <h4>超大规模实时互动</h4>
+                    <p>边缘节点分担计算负载，使万人同时在线的大型会议、直播活动实现流畅互动，同时降低中心带宽成本达60%以上。</p>
+                </div>
+            </div>
+            
+            <h3>1.3 技术挑战与协同创新</h3>
+            <p>边缘RTC的发展仍面临诸多挑战，包括边缘节点资源受限、网络拓扑复杂等问题。解决这些挑战需要与5G、AI等技术协同创新：</p>
+            <ul>
+                <li><strong>5G网络切片</strong>：为边缘RTC提供专属网络通道，保障服务质量</li>
+                <li><strong>AI驱动的资源调度</strong>：预测流量高峰，动态分配边缘计算资源</li>
+                <li><strong>轻量化媒体处理</strong>：开发适合边缘设备的低功耗编解码算法</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>第二部分：体验革命——AI驱动的智能RTC范式转变</h2>
+            
+            <h3>2.1 从"传输管道"到"智能代理"的范式迁移</h3>
+            <p>传统RTC系统作为被动的数据传输管道，对通信内容缺乏理解和干预能力。AI技术的引入使RTC系统进化为"智能通信代理"，具备感知、分析和优化能力：</p>
+            <ul>
+                <li><strong>网络智能</strong>：机器学习模型实时预测网络波动，动态调整传输策略</li>
+                <li><strong>内容理解</strong>：计算机视觉识别关键画面区域，音频AI分离人声与噪声</li>
+                <li><strong>交互增强</strong>：情感识别、实时翻译、自动摘要等多模态能力融入通信流程</li>
+            </ul>
+            
+            <h3>2.2 智能RTC的技术架构</h3>
+            <p>现代智能RTC系统构建了多层AI能力栈：</p>
+            <div class="tech-stack">
+                <div class="tech-level">
+                    <span class="level-label">1. 基础感知层</span>
+                    <span>网络质量监测、音视频内容分析</span>
+                </div>
+                <div class="tech-level">
+                    <span class="level-label">2. 认知理解层</span>
+                    <span>语音识别、情感计算、场景理解</span>
+                </div>
+                <div class="tech-level">
+                    <span class="level-label">3. 决策优化层</span>
+                    <span>自适应编码、智能路由、交互增强</span>
+                </div>
+                <div class="tech-level">
+                    <span class="level-label">4. 应用服务层</span>
+                    <span>会议辅助、教育评估、医疗诊断等垂直场景能力</span>
+                </div>
+            </div>
+            
+            <h3>2.3 场景化智能的实践突破</h3>
+            <p>在不同应用场景中，智能RTC展现出差异化价值：</p>
+            <ul>
+                <li><strong>远程协作场景</strong>：AI实现发言人自动聚焦、背景虚化、会议纪要生成，使团队协作效率提升40%</li>
+                <li><strong>在线教育场景</strong>：通过注意力分析、知识掌握度评估，为教师提供实时教学反馈，个性化教学效果提升35%</li>
+                <li><strong>智慧医疗场景</strong>：结合医学影像分析和患者微表情识别，辅助远程诊断准确率提高25%</li>
+            </ul>
+            
+            <h3>2.4 边缘与AI的协同效应</h3>
+            <p>边缘计算为AI RTC提供了理想的部署环境：</p>
+            <ul>
+                <li><strong>低延迟推理</strong>：AI模型在边缘节点运行，减少云端往返延迟</li>
+                <li><strong>隐私保护</strong>：敏感数据在本地处理，减少传输泄露风险</li>
+                <li><strong>弹性扩展</strong>：边缘节点分布式部署支持AI负载的动态扩展</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>第三部分：安全革命——端到端加密保障RTC隐私</h2>
+            
+            <h3>3.1 RTC安全的新挑战与新要求</h3>
+            <p>实时通信的隐私保护面临独特挑战：</p>
+            <ul>
+                <li><strong>即时性要求</strong>：加密/解密必须在毫秒级完成</li>
+                <li><strong>多方参与</strong>：群组通信需要复杂的密钥管理</li>
+                <li><strong>终端异构</strong>：不同设备的安全能力差异大</li>
+            </ul>
+            <p>传统TLS加密无法满足这些需求，端到端加密(E2EE)成为必由之路。</p>
+            
+            <h3>3.2 端到端加密的技术突破</h3>
+            <p>现代RTC系统中的E2EE实现了多项创新：</p>
+            <ul>
+                <li><strong>高效群组密钥管理</strong>：采用双棘轮(Double Ratchet)协议和树形密钥分发(TreeKEM)技术，实现多方会议的安全密钥更新，密钥协商时间从秒级降至毫秒级。</li>
+                <li><strong>硬件加速加密</strong>：利用AES-NI指令集和GPU加速，使加密延迟降低80%，满足4K视频实时加密需求。</li>
+                <li><strong>终端安全强化</strong>：结合TEE可信执行环境，确保密钥生成、存储和使用全过程安全，即使设备被入侵也能保护通信内容。</li>
+            </ul>
+            
+            <h3>3.3 安全与体验的平衡艺术</h3>
+            <p>实现安全与性能的平衡需要技术创新：</p>
+            <div class="evolution-stages">
+                <div class="evolution-stage">
+                    <h4>自适应加密策略</h4>
+                    <p>根据网络状况动态调整加密强度，在弱网环境下自动降级加密复杂度，保障通信连续性。</p>
+                </div>
+                <div class="evolution-stage">
+                    <h4>分层加密架构</h4>
+                    <p>对音视频流、信令、元数据实施差异化加密策略，优化整体性能。</p>
+                </div>
+                <div class="evolution-stage">
+                    <h4>边缘安全协同</h4>
+                    <p>边缘节点处理非敏感计算任务，核心加密操作保留在终端，兼顾性能与安全。</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>第四部分：三重革命的融合与未来展望</h2>
+            
+            <h3>4.1 技术融合的乘数效应</h3>
+            <p>边缘计算、AI智能与端到端安全不是孤立发展，而是相互促进：</p>
+            <ul>
+                <li><strong>边缘AI</strong>：在边缘节点部署轻量化AI模型，实现低延迟智能处理</li>
+                <li><strong>安全AI</strong>：利用AI检测异常流量和行为，增强安全防护</li>
+                <li><strong>边缘安全</strong>：边缘节点作为安全代理，实施零信任访问控制</li>
+            </ul>
+            
+            <h3>4.2 未来RTC的六大趋势</h3>
+            <div class="trend-list">
+                <div class="trend-item">
+                    <div class="trend-number">1</div>
+                    <strong>全息通信</strong>
+                    <p>结合光场显示与触觉反馈，实现多感官沉浸式体验</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">2</div>
+                    <strong>自主网络</strong>
+                    <p>AI自动优化边缘资源分配和网络路径选择</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">3</div>
+                    <strong>量子安全</strong>
+                    <p>抗量子加密算法保护通信免受未来计算威胁</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">4</div>
+                    <strong>认知通信</strong>
+                    <p>系统理解用户意图，主动优化通信方式和内容</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">5</div>
+                    <strong>去中心化架构</strong>
+                    <p>区块链技术实现完全分布式RTC网络</p>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-number">6</div>
+                    <strong>环境计算</strong>
+                    <p>RTC能力融入物理环境，实现无处不在的自然交互</p>
+                </div>
+            </div>
+            
+            <h3>4.3 站长行动指南</h3>
+            <p>对于网站运营者而言，把握RTC技术趋势至关重要：</p>
+            <ol>
+                <li><strong>场景评估</strong>：识别业务中需要实时互动的关键场景</li>
+                <li><strong>技术选型</strong>：根据延迟、智能、安全需求选择合适的技术组合</li>
+                <li><strong>渐进实施</strong>：从核心功能开始，逐步引入边缘节点、AI能力和加密措施</li>
+                <li><strong>性能监控</strong>：建立全面的QoE(体验质量)评估体系</li>
+                <li><strong>隐私合规</strong>：确保符合GDPR等数据保护法规要求</li>
+            </ol>
+        </section>
+        
+        <section>
+            <h2>结语：RTC的"智能边缘安全"新时代</h2>
+            <p>实时通信技术正在经历从单一传输工具到综合通信平台的质变。边缘计算重构了基础设施，AI注入了智能灵魂，端到端加密构筑了安全屏障。这三重革命不是简单的技术叠加，而是产生了"1+1+1>3"的协同效应。</p>
+            
+            <p>未来已来，RTC将不再只是连接人与人的工具，而成为支撑数字社会运转的神经系统。把握这三重技术趋势，我们将共同开启实时通信的"智能边缘安全"新时代，创造更加流畅、智能、安全的数字交互体验。</p>
+        </section>
+        
+        <nav>
+            <ul>
+                <li><a href="../index.html">主页</a></li>
+                <li><a href="../insights.html">技术见解</a></li>
+                <li><a href="../updates.html">最新动态</a></li>
+                <li><a href="../join.html">加入我们</a></li>
+            </ul>
+        </nav>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 2AGI.me | 探索通信技术的未来</p>
+    </footer>
+    
+    <script>
+        // 简单的语言切换功能
+        function toggleLanguage() {
+            const toggleBtn = document.getElementById('languageToggle');
+            const currentLang = toggleBtn.textContent;
+            
+            // 模拟语言切换，实际使用中应重新加载页面或替换内容
+            if (currentLang === '中') {
+                toggleBtn.textContent = 'EN';
+                alert('切换到英语模式（演示功能）');
+            } else {
+                toggleBtn.textContent = '中';
+                alert('切换到中文模式（演示功能）');
+            }
+        }
+        
+        // 为所有标题添加平滑滚动锚点
+        document.querySelectorAll('h2, h3').forEach(heading => {
+            heading.addEventListener('click', () => {
+                const id = heading.textContent.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-');
+                history.replaceState(null, null, `#${id}`);
+                heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            
+            // 添加下划线样式提示可点击
+            heading.style.cursor = 'pointer';
+            heading.style.textDecoration = 'underline transparent';
+            heading.style.transition = 'text-decoration 0.3s';
+            
+            heading.addEventListener('mouseenter', () => {
+                heading.style.textDecoration = 'underline';
+                heading.style.textDecorationColor = 'var(--accent)';
+            });
+            
+            heading.addEventListener('mouseleave', () => {
+                heading.style.textDecoration = 'underline transparent';
+            });
+        });
+        
+        // 页面加载时处理锚点
+        document.addEventListener('DOMContentLoaded', function() {
+            if (location.hash) {
+                setTimeout(() => {
+                    const id = location.hash.substring(1);
+                    const element = document.getElementById(id);
+                    if (element) element.scrollIntoView();
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>
