@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Critiquing Digital Capitalism - 2AGI.me</title>
+    <meta name="keywords" content="Digital Colonialism, Algorithmic Power, Metaverse Politics, AI Sociology, 2AGI.me">
+    <meta name="description" content="Deep exploration of technological power structures under digital capitalism: Algorithmic neural colonization, digital theurgy, and metaverse body politics">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS remains unchanged */
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --text: #f1f1f1;
+            --light-text: #a9a9a9;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        #languageToggle {
+            background: var(--accent);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #languageToggle:hover {
+            background: var(--highlight);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            padding: 60px 10%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(233, 69, 96, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(15, 52, 96, 0.2) 0%, transparent 40%);
+            z-index: -1;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        header h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .theme-selector {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .theme-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text);
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-btn.active, .theme-btn:hover {
+            background: var(--accent);
+            border-color: var(--highlight);
+        }
+        
+        article {
+            display: none;
+            background: rgba(22, 33, 62, 0.6);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        article.active {
+            display: block;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        article .header {
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        article h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        article h3 {
+            font-size: 1.8rem;
+            color: var(--highlight);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        article h4 {
+            font-size: 1.4rem;
+            color: rgb(168, 178, 201);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        article p {
+            margin: 20px 0;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+        
+        article strong {
+            color: var(--highlight);
+        }
+        
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(10, 15, 30, 0.4);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        th {
+            background: var(--accent);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        tr:hover {
+            background: rgba(15, 52, 96, 0.3);
+        }
+        
+        .diagram {
+            background: rgba(10, 15, 30, 0.5);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .diagram-content {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+            position: relative;
+        }
+        
+        .diagram-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: var(--highlight);
+        }
+        
+        .diagram-title::before {
+            content: "↳";
+            margin-right: 10px;
+            color: rgba(233, 69, 96, 0.6);
+        }
+        
+        article blockquote {
+            border-left: 3px solid var(--highlight);
+            padding-left: 25px;
+            margin: 30px 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+        
+        .conclusion {
+            background: rgba(15, 52, 96, 0.4);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 4px solid var(--highlight);
+        }
+        
+        .conclusion h3 {
+            color: var(--highlight);
+            border: none;
+            padding: 0;
+            margin-top: 0;
+        }
+        
+        nav {
+            background: var(--secondary);
+            padding: 20px 0;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 5%;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header h2 {
+                font-size: 1.5rem;
+            }
+            
+            article {
+                padding: 30px 20px;
+            }
+            
+            article h2 {
+                font-size: 2rem;
+            }
+            
+            article h3 {
+                font-size: 1.5rem;
+            }
+            
+            article p {
+                font-size: 1rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle">中文/EN</button>
+    </div>
+    <header>
+        <h1>Critiquing Digital Capitalism</h1>
+        <h2>Deconstructing Technological Power: From Neural Colonization to Metaverse Politics of the Body</h2>
+        <div class="meta-info">
+            <span>Sociological Frontiers · Media Studies Series · In-depth Analysis</span>
+            <span>Updated February 2024</span>
+        </div>
+    </header>
+    <main>
+        <div class="theme-selector">
+            <button class="theme-btn active" data-article="article1">Neural Colonization</button>
+            <button class="theme-btn" data-article="article2">Digital Theurgy</button>
+            <button class="theme-btn" data-article="article3">Metaverse Politics</button>
+        </div>
+
+        <!-- Article 1: Neural Colonization -->
+        <article id="article1" class="active">
+            <div class="header">
+                <h2>The Cultural Unconscious Construction in Algorithmic Recommendation Systems</h2>
+                <p>Decoding the Neuronal Coloniality of Information Cocoons</p>
+            </div>
+            
+            <p>Current critiques of algorithmic recommendations primarily focus on surface-level effects like information isolation, failing to address technology's reconstruction of human existence. This article introduces the concept of <strong>"Neural Colonization"</strong>, combining Deleuze's control society theory with neural plasticity research to reveal how algorithms reshape cognitive frameworks through neurological mechanisms, constructing new power relationships below the threshold of consciousness. Short video platforms function not just as information distributors, but as <strong>biopolitical devices</strong> enforcing neural-level discipline.</p>
+            
+            <h3>Neural Colonization: Dopamine Tyranny and Algorithmic Hijacking of Cognitive Circuits</h3>
+            
+            <h4>Technological Domestication of Reward Systems</h4>
+            <p>TikTok's intermittent reward mechanism constitutes a digital Skinner Box: randomly viral videos trigger abnormal dopamine secretion, inhibiting prefrontal cortex executive functions. Neuroimaging shows heavy users' cravings activate neural pathways similar to addicts, evidencing <strong>"algorithmic parasitism"</strong>.</p>
+            
+            <h4>Micro-expression Politics and Subconscious Manipulation</h4>
+            <p>Platforms build <strong>affective computing models</strong> through 0.3-second micro-expression capture, granting algorithms predictive capabilities beyond subjective awareness. When users' facial muscles haven't fully formed emotional expressions, the system already predicts neural excitation curves—this intervention in preconscious processes marks power's evolution from Foucault's "discipline" to Deleuze's "control".</p>
+            
+            <h3>Affective Political Economy: From Pavlovian Reflex to Cognitive Closure</h3>
+            
+            <h4>Systematic Production of Conditioned Reflexes</h4>
+            <p>Kuaishou's 15-second video switching precisely matches human attention cycles, producing <strong>cognitive rhythm domestication</strong>. Users' automated responses to feeds manifest cultivated "digital reflex arcs"—like Pavlov's bell-salivation association, where visual stimuli become neurally coupled with swiping behaviors.</p>
+            
+            <h4>Capitalist Logic of Cognitive Closure</h4>
+            <p>When "precise recommendations" become core selling points, user experience optimization equals the <strong>directional narrowing of perceptual abilities</strong>. Algorithm engineers confirm: systems actively suppress unconventional content while reinforcing neural preference solidification. Users progressively lose information-seeking capacities, devolving into biological sensors for platform data production.</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Religious Ritual Elements</th>
+                            <th>Algorithmic Equivalents</th>
+                            <th>Power Operational Logic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eucharist</strong></td>
+                            <td>Personalized recommendation feeds</td>
+                            <td>Monopoly control of spiritual nourishment</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Confessional</strong></td>
+                            <td>Liking/bookmarking behaviors</td>
+                            <td>Ritual confession of desires</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pilgrimage</strong></td>
+                            <td>Continuous immersive scrolling</td>
+                            <td>Spatio-temporal governance</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table-caption">Communion of Information: Ritual Enchantment in Algorithm Mechanisms</div>
+            </div>
+            
+            <p>ByteDance's "Digital Theology" leaked documents reveal deliberate <strong>"serendipitous masterpiece"</strong> algorithms (one exceptional weekly recommendation) that strengthen users' <strong>messianic expectations</strong> toward platforms, cementing psychological dependence on information provisioning.</p>
+            
+            <h3>Governance Challenges and Resistance Strategies Against Neural Colonization</h3>
+            
+            <div class="diagram">
+                <h4 class="diagram-title">Structural Contradictions</h4>
+                <div class="diagram-content">
+                    <p>Cognitive autonomy vs Platform commercial demands</p>
+                    <p>Neural plasticity protection vs Techno-enhancement</p>
+                </div>
+                
+                <h4 class="diagram-title">Three Resistance Strategies</h4>
+                <div class="diagram-content">
+                    <p>1. Democratizing neural interfaces: Develop open-source algorithm plugins visualizing cognitive impact trajectories</p>
+                    <p>2. <strong>Cognitive immunity training</strong>: Integrate digital neural literacy into compulsory education</p>
+                    <p>3. Establish mandatory "Algorithmic Neural Impact Assessment" certification (e.g., EU Neuro-RIA framework)</p>
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <h3>Conclusion</h3>
+                <blockquote>"When algorithms evolve from information filters into neuro-modification tools, the question of 'how to think' is replaced by 'whether one can think.' Combating neural colonization requires not just regulatory frameworks but reconstructing human cognitive sovereignty at the neural-technological-societal nexus."</blockquote>
+            </div>
+        </article>
+
+        <!-- Article 2: Digital Theurgy -->
+        <article id="article2">
+            <div class="header">
+                <h2>Digital Theurgy</h2>
+                <p>Post-Biopolitics of Social Media</p>
+            </div>
+            
+            <p>Heidegger's "Dasein" faces fundamental challenges in the digital age. Through ethnographic studies of digital mourning on WeChat, this article reveals how social media constructs <strong>post-mortem existence</strong>—digital traces of the deceased transcend biological death through Latour's actor-network extending beyond mortality.</p>
+            
+            <h3>Virtual Corpses: Material Basis of Digital Necromancy</h3>
+            
+            <h4>Ritual Production in Interactive Memorials</h4>
+            <p>Decedents' WeChat Moments become <strong>time-folded mourning spaces</strong>: automated anniversary reminders and AI-generated "birthday alerts" transform periodic rituals into persistent existential experiences. Tencent's 2023 Digital Heritage Report shows 87.2% users preserve memorial accounts, triggering 2.5 million daily "virtual visits".</p>
+            
+            <h4>Cosmological Transformation of Data Bodies</h4>
+            <p>Funeral service "Metaverse Cemetery" platforms reconfigure ancestral worship into a <strong>digital sacrifice economy</strong>: virtual offerings and timed e-candle packages quantify spiritual devotion. As users "clean" VR tombstones, real tears blending with virtual spaces reconfigure Merleau-Ponty's "body schema" theory.</p>
+            
+            <h3>Ethical Labyrinths of AI Necromancy</h3>
+            <div class="diagram">
+                <h4 class="diagram-title">Microsoft XiaoIce Resurrection Protocol Controversy</h4>
+                <div class="diagram-content">
+                    <p>• <strong>Ontological paradox</strong>: Can chatbots replicating speech patterns embody 'personhood'?</p>
+                    <p>• <strong>Affective exploitation</strong>: $0.99/min chat service monetizes grief</p>
+                    <p>• <strong>Digital patricide dilemma</strong>: Setting "preferred versions" of parental AI constitutes symbolic annihilation of real kinship</p>
+                </div>
+            </div>
+            
+            <blockquote>Case: User configures suicidal friend's AI as "never-depressed version," creating alternative life narratives—exposing how digital immortality technologically castrates <strong>existential possibilities</strong>.</blockquote>
+            
+            <h3>Politics of Memory in Digital Vigils</h3>
+            <p>WeChat annual rankings trigger "digital resurrection" phenomena: deceased accounts unexpectedly topping lists spark collective memorial waves. But algorithmic logic is rewriting mourning:</p>
+            
+            <div class="diagram">
+                <h4 class="diagram-title">Technologically Driven Memory Reconstruction</h4>
+                <div class="diagram-content">
+                    <p>Deceased account → Content popularity algorithm → Memory reconstruction →</p>
+                    <p>├─ High-interaction posts prioritized → Selective recall</p>
+                    <p>└─ Low-engagement content suppressed → Systematic forgetting</p>
+                </div>
+            </div>
+            
+            <p>This phenomenon confirms Derrida's "archive fever" in digital form—while platforms seemingly preserve memories, they curate programmatic forgetting.</p>
+            
+            <h3>Countermeasures: Ethical Frameworks for Digital Theurgy</h3>
+            <div class="diagram">
+                <h4 class="diagram-title">Existence State Classification</h4>
+                <div class="diagram-content">
+                    <p>• L1: Natural data remains (inert accounts)</p>
+                    <p>• L2: Interactive constructs (auto-responsive programs)</p>
+                    <p>• L3: AI simulacra (legislation-licensed only)</p>
+                </div>
+                
+                <h4 class="diagram-title">Necromantic Rights Separation Principle</h4>
+                <div class="diagram-content">
+                    <p>Distinguish data inheritance rights (familial management) from personality replication rights (commercial resurrection ban)</p>
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <h3>Conclusion</h3>
+                <blockquote>"Digital necromancy blurs philosophical boundaries between existence and obliteration. 'Cybernetic immortality' represents ontology violence sugar-coated with technology. Only by establishing 'digital death rights' can we preserve dignity in the bitstream."</blockquote>
+            </div>
+        </article>
+
+        <!-- Article 3: Metaverse Body Politics -->
+        <article id="article3">
+            <div class="header">
+                <h2>The Politics of Metaverse Embodiment</h2>
+                <p>Avatar Revolutions and Perceptual Refeudalization</p>
+            </div>
+            
+            <p>The metaverse's touted "infinite bodily possibilities" obscures deep perceptual hierarchies. A 12-month Decentraland ethnography reveals how virtual avatars not only preserve real-world inequalities but technologically reinforce Bourdieu's habitus. This expose examines <strong>sensory refeudalization</strong> via VR hardware, algorithmic gazes, and spatial politics reconstructing digital cages.</p>
+            
+            <h3>Caste Systems of Perception: Technological Stratification of Sensoria</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tier</th>
+                            <th>Refresh Rate</th>
+                            <th>Motion Latency</th>
+                            <th>User Discomfort</th>
+                            <th>Social Metaphor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Premium</strong></td>
+                            <td>120Hz</td>
+                            <td>&lt;10ms</td>
+                            <td>Motion sickness &lt;3%</td>
+                            <td>Digital Aristocracy</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Consumer</strong></td>
+                            <td>90Hz</td>
+                            <td>20-50ms</td>
+                            <td>Motion sickness 15%</td>
+                            <td>Techno-Middle Class</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mobile</strong></td>
+                            <td>60Hz</td>
+                            <td>&gt;80ms</td>
+                            <td>Motion sickness 38%</td>
+                            <td>Virtual Proletariat</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p>Meta internal reports confirm: Low-end device users suffer 82% higher VR meeting dropouts due to vertigo—directly impeding virtual workplace advancement. Technological disparities restructure the <strong>social allocation of cognition</strong>.</p>
+            
+            <h3>Algorithmic Anatomy of Virtual Idols</h3>
+            <p>Vtuber industry data reveals aesthetic hegemony mechanisms:</p>
+            
+            <div class="diagram">
+                <h4 class="diagram-title">Vertex Politics</h4>
+                <div class="diagram-content">
+                    <p>Among 5,000+ facial vertex coordinates, 89% preset algorithmically (e.g., eyelid curvature 32°±0.5)</p>
+                </div>
+                
+                <h4 class="diagram-title">Affective Exploitation Pipeline</h4>
+                <div class="diagram-content">
+                    <p>Live chat emotions → AI analysis → Real-time expression optimization →</p>
+                    <p>├─ Lip-corner lift 0.7mm →</p>
+                    <p>├─ Blink frequency +30% →</p>
+                    <p>└─ Virtual gifts +25% revenue</p>
+                </div>
+            </div>
+            
+            <p>"<strong>Perpetual Vigilance</strong>" contracts exposed in Nijisanji VTuber burnout incidents reveal virtual bodies as <strong>infinite affective labor extraction devices</strong>.</p>
+            
+            <h3>Topographical Transfers of Spatial Power</h3>
+            <p>Decentraland land auctions replicate physical power structures:</p>
+            
+            <div class="diagram">
+                <div class="diagram-content">
+                    <p>1. <strong>Centralization shadow</strong>: Top 1% accounts own 43% virtual land (mirroring real wealth Gini coefficient 0.41)</p>
+                    <p>2. <strong>Colonial logic upgrade</strong>: Consortium acquiring "Metaverse Times Square" imposes <strong>scene taxes</strong> (token payments for entry)</p>
+                </div>
+            </div>
+            
+            <h3>Revolutionary Politics of Virtual Embodiment</h3>
+            <div class="diagram">
+                <h4 class="diagram-title">Resistance Practices Archive</h4>
+                <div class="diagram-content">
+                    <p>• <strong>OpenAvatar</strong>: Open-source movement enabling self-designed avatars</p>
+                    <p>• <strong>Perception equity patches</strong>: Accessibility mods by disabled developers</p>
+                    <p>• <strong>Virtual sit-ins</strong>: Featureless avatars protesting in Meta squares</p>
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <h3>Conclusion</h3>
+                <blockquote>"When avatars become carriers of technological unconsciousness, embodiment politics shift to polygon topology and algorithmic parameters. True 'avatar revolutions' lie not in creating infinite skins but reclaiming the <strong>hermeneutic violence</strong> that defines bodies."</blockquote>
+            </div>
+        </article>
+        
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../insights.html">Academic Library</a></li>
+                <li><a href="../updates.html">Research Frontiers</a></li>
+                <li><a href="../join.html">Academic Community</a></li>
+            </ul>
+        </nav>
+    </main>
+    <footer>
+        <p>&copy; 2024 2AGI.me | Center for Critical Digital Social Studies</p>
+    </footer>
+
+    <script>
+        // Theme switching functionality
+        const themeButtons = document.querySelectorAll('.theme-btn');
+        const articles = document.querySelectorAll('article');
+        
+        themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active states
+                themeButtons.forEach(btn => btn.classList.remove('active'));
+                articles.forEach(article => article.classList.remove('active'));
+                
+                // Set active state
+                button.classList.add('active');
+                
+                // Show target article
+                const targetArticle = document.getElementById(button.dataset.article);
+                if (targetArticle) {
+                    targetArticle.classList.add('active');
+                    
+                    // Smooth scroll to article
+                    targetArticle.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Language toggle functionality
+        const languageToggle = document.getElementById('languageToggle');
+        languageToggle.addEventListener('click', function() {
+            this.textContent = this.textContent.includes('EN') ? 
+                              'EN/中文' : '中文/EN';
+        });
+    </script>
+</body>
+</html>
