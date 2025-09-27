@@ -1,0 +1,86 @@
+
+<a href="#" id="language-switch" class="language-switch">Language Switch</a>
+
+<article>
+  <h2>人工智能与数据隐私：平衡创新与保护</h2>
+  <p>在当前数字化时代，数据已成为关键资源，而数据隐私问题日益重要...</p>
+  <ul>
+    <li>数据隐私的核心问题包括...</li>
+    <li>用户数据保护与共享的平衡</li>
+  </ul>
+</article>
+
+<article>
+  <h2>AI 和隐私保护的未来趋势</h2>
+  <p>AI 的飞速发展对隐私保护提出了新的挑战...</p>
+</article>
+```
+
+---
+
+### ✅ **Complete JavaScript Solution**
+
+Below is a full implementation to support switching between Chinese and English content:
+
+```js
+// Content data in English and Chinese
+const langContent = {
+  en: {
+    headers: [
+      "AI and Data Privacy: Balancing Innovation and Protection",
+      "Emerging Trends in AI and Privacy Protection"
+    ],
+    paras: [
+      "In the digital age, data has become a critical resource, making data privacy increasingly important...",
+      "The rapid development of AI brings new challenges to privacy protection..."
+    ],
+    listItems: [
+      "Core issues in data privacy include...",
+      "Balancing user data protection and sharing"
+    ]
+  },
+  zh: {
+    headers: [
+      "人工智能与数据隐私：平衡创新与保护",
+      "AI 和隐私保护的未来趋势"
+    ],
+    paras: [
+      "在当前数字化时代，数据已成为关键资源，而数据隐私问题日益重要...",
+      "AI 的飞速发展对隐私保护提出了新的挑战..."
+    ],
+    listItems: [
+      "数据隐私的核心问题包括...",
+      "用户数据保护与共享的平衡"
+    ]
+  }
+};
+
+// Keep track of current language
+let currentLang = 'zh';
+
+// Elements to update
+const headers = document.querySelectorAll('article h2');
+const paragraphs = document.querySelectorAll('article p');
+const listItems = document.querySelectorAll('article li');
+
+// Function to update the DOM with selected language
+function updateContent(lang) {
+  headers.forEach((element, index) => {
+    element.textContent = langContent[lang].headers[index] || '';
+  });
+
+  paragraphs.forEach((element, index) => {
+    element.textContent = langContent[lang].paras[index] || '';
+  });
+
+  listItems.forEach((element, index) => {
+    element.textContent = langContent[lang].listItems[index] || '';
+  });
+}
+
+// Event handler for the language switch button
+document.getElementById('language-switch').addEventListener('click', function (e) {
+  e.preventDefault();
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  updateContent(currentLang);
+});
