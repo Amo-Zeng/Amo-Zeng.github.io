@@ -1,0 +1,571 @@
+<think>
+好的，我现在需要帮用户生成一个完整的权限管理系统代码。首先，我需要仔细阅读用户提供的设计文档，理解其中的各个部分，包括系统结构、数据库模型、服务层、API接口、输入验证、错误处理等。用户已经给出了详细的代码示例，但可能希望得到一个完整的、可运行的版本。
+
+首先，我需要确认用户的需求。他们提到基于之前的设计文档生成完整的代码，可能希望有一个整合后的代码库，可以直接部署和运行。用户提供的代码片段包括模型定义、服务实现、API路由、错误处理等，但可能分散在不同文件中，或者需要整合成一个Flask应用。
+
+接下来，我需要考虑如何将这些代码组织成一个Flask项目结构。通常，Flask应用的结构可能是这样的：app.py作为主应用文件，models.py定义数据库模型，services.py处理业务逻辑，schemes.py处理输入验证，以及路由和错误处理器分别放在不同的模块中。但为了生成一个完整的可运行代码，可能需要将所有内容整合到一个文件中，或者合理拆分模块。
+
+不过，用户可能希望一个单独的文件，方便快速运行和测试。因此，我需要将所有部分整合到一个app.py文件中，使用Flask框架，并配置SQLite数据库以便测试。
+
+需要注意的点：
+
+1. 数据库配置：用户使用了SQLAlchemy的Enum类型，需要确保支持。此外，使用Flask-SQLAlchemy扩展，需要正确初始化，并创建所有表（db.create_all()）。
+
+2. 输入验证：使用marshmallow进行数据验证，需要创建相应的schema，比如UserSchema、RoleSchema、PermissionSchema等。在路由处理中，使用这些schema验证输入数据。
+
+3. 错误处理：用户有提到使用HTTPException的子类如NotFound、BadRequest，需要正确导入或定义这些异常。
+
+4. API路由设计：用户提到了创建用户、角色、权限，分配角色和权限，检查权限的端点，需要确保每个端点正确实现。
+
+5. 依赖项：需要确保安装必要的Python包，如Flask、Flask-SQLAlchemy、marshmallow、marshmallow-sqlalchemy等。
+
+现在，我需要检查用户提供的代码片段，并整合成一个完整的Flask应用：
+
+- 数据库模型：User、Role、Permission的定义，以及ResourceType和ActionType的枚举。在SQLAlchemy中，Enum可以直接使用，但需要注意数据库引擎是否支持。对于SQLite，可能需要用字符串存储，而无需实际使用数据库的enum类型。
+
+在用户提供的模型中，ResourceType和ActionType是在类中定义的字符串常量，而Permssion表中的resource_type和action字段使用了db.Enum(ResourceType)，但可能需要调整，因为db.Enum应该用作字段类型。例如，在Permission模型中，resource_type应该是db.Column(db.Enum(*ResourceType.values())), nullable=False)？
+
+或者在代码中，可能用户希望使用自定义的枚举类，但实际存储为字符串。例如，在模型中，resource_type是db.Column(db.String(50), nullable=False)，然后在初始化时进行验证，或者使用验证逻辑确保传入正确的值。
+
+需要检查用户提供的代码中的模型部分：
+
+用户定义了ResourceType和ActionType的类，它们有values()方法返回枚举值。在Permission模型中，resource_type字段的类型是db.Enum(ResourceType)，但SQLAlchemy的Enum需要传递枚举类或者枚举值。这可能存在错误，因为在SQLAlchemy中，db.Enum通常用于Python的enum.Enum类。可能需要调整这部分代码，使用字符串类型，并在输入验证时检查值是否在允许范围内。
+
+例如，在用户的服务层代码中，check_user_access函数会验证resource_type和action是否在ResourceType和ActionType的values()中。这可能意味着在Permission模型中，resource_type和action字段是用字符串类型存储，而值必须属于预定义的选项。此时，在模型定义中，应该去除db.Enum的使用，改用db.String，然后在添加权限时依靠输入验证来确保正确的值。
+
+这可能是一个需要注意的点，否则在创建数据库表时可能会出错，因为Python的类ResourceType可能不被SQLAlchemy的Enum支持。
+
+因此，在Permission模型中：
+
+resource_type = db.Column(db.String(50), nullable=False)
+
+action = db.Column(db.String(50), nullable=False)
+
+然后在创建权限的时候，使用服务层验证，确保传入的resource_type和action是允许的。
+
+这样调整模型部分的代码，以修正之前的错误。
+
+另外，在用户提供的API路由示例中，创建权限的路由处理函数中的PermissionSchema().load(request.get_json())，但schema可能需要验证resource_type和action的值是否在允许范围内。因此，在schemes.py中，需要确保这两个字段的值在ResourceType和ActionType的values()中。
+
+接下来，整合所有部件：
+
+1. 初始化Flask应用，配置SQLAlchemy数据库URI（例如使用SQLite的本地文件）。
+
+2. 定义模型User、Role、Permission，并创建关联表。
+
+3. 初始化marshmallow，创建各个schema类。
+
+4. 实现服务层函数，处理业务逻辑，如创建用户、角色、权限，分配角色等。
+
+5. 定义API路由，处理HTTP请求，验证输入，调用服务层，返回JSON响应。
+
+6. 错误处理器，捕获异常并返回相应的JSON错误信息。
+
+现在，我需要将这些步骤整合到一个Python文件中，确保应用能够正确运行。
+
+此外，可能需要处理跨域问题（CORS），但用户给出的代码中没有提到，所以暂时忽略，假设是在本地测试使用。
+
+测试步骤：运行应用后，可以通过curl或Postman测试各个API端点。
+
+现在，开始编写整合后的代码：
+
+- 导入必要的模块，Flask、SQLAlchemy、marshmallow等。
+
+- 初始化应用，配置数据库 URI，如'sqlite:///./test.db'
+
+- 初始化db = SQLAlchemy(app)
+
+- 定义关联表 user_role关联表，使用db.Table定义。
+
+- 定义User、Role、Permission模型类，注意关联表的关系。
+
+- 创建Marshmallow schema，比如UserSchema，RoleSchema，PermissionSchema。对于UserSchema，需要包含roles，RoleSchema需要包含permissions和users。这里需要注意，可能使用Marshmallow-SQLAlchemy自动生成，或者显式定义字段。
+
+- 定义服务层函数，例如create_user等，但用户提供的代码中服务层是直接在路由中调用模型的创建方法，然后保存到db。可能需要简化，在服务函数中直接创建模型实例，并提交。
+
+- 然后定义路由，例如：
+
+@app.route('/users', methods=['POST'])
+def create_user():
+    ...
+    data = UserSchema().load(request_data)
+    user = User(**data)
+    db.session.add(user)
+    db.session.commit()
+    return UserSchema().dump(user), 201
+...
+
+同时，在创建权限时，需要验证resource_type和action是否在允许的列表中，否则返回错误。这部分在服务层或者schema验证中处理。
+
+需要注意，在用户的服务层代码中，check_user_access函数验证传入的参数，而create_permission的参数是否正确可能需要在这里的路由处理中进行验证。
+
+接下来，处理输入验证的问题：
+
+可能在每个POST请求的schema中添加验证函数，例如在PermissionSchema中确保resource_type必须是ResourceType.values()中的值。
+
+例如，在PermissionSchema中使用@validates('resource_type')装饰器。
+
+或者在字段定义时使用validate.OneOf等验证方法。
+
+这样，在schema定义中需要导入validate模块。
+
+例如：
+
+class PermissionSchema(ma.SQLAlchemySchema):
+    class Meta:
+        model = Permission
+    resource_type = ma.String(required=True, validate=validate.OneOf(ResourceType.values()))
+    action = ma.String(required=True, validate=validate.OneOf(ActionType.values()))
+    ...
+
+这样，当接收到创建Permission的请求时，schema会自动验证resource_type和action是否属于允许的值。
+
+现在，将整个代码整合：
+
+可能的代码结构：
+
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from marshmallow import Schema, fields, validate, ValidationError
+import enum
+from datetime import datetime
+
+然后定义App，db等。
+
+但需要注意，在Python中，当使用SQLAlchemy的关联表，外键的关系必须正确。
+
+此外，在RoleSchema中，有permissions和users字段，使用ma.Nested以避免无限递归，可能需要设置exclude参数。
+
+例如，RoleSchema中的permissions字段可以使用exclude=('role',)之类的参数，或者使用dump_only。
+
+可能需要简化schema以避免循环引用，在UserSchema中包含roles，RoleSchema中包含permissions和users，但使用only参数或排除反向关系，或者使用Nested的只读字段。
+
+这部分可能需要处理循环引用的问题，在schema中正确关联。
+
+比如，在UserSchema中：
+
+class UserSchema(ma.SQLAlchemySchema):
+    class Meta:
+        model = User
+    id = fields.Integer(dump_only=True)
+    name = fields.String(required=True)
+    email = fields.String(required=True)
+    roles = fields.Nested('RoleSchema', many=True, exclude=['users'])
+
+class RoleSchema(ma.SQLAlchemySchema):
+    class Meta:
+        model = Role
+    id = fields.Integer(dump_only=True)
+    name = fields.String(required=True)
+    permissions = fields.Nested('PermissionSchema', many=True, exclude=['roles'])
+    users = fields.Nested('UserSchema', many=True, exclude=['roles'])
+
+class PermissionSchema(ma.SQLAlchemySchema):
+    class Meta:
+        model = Permission
+    id = fields.Integer(dump_only=True)
+    name = fields.String(required=True)
+    resource_type = fields.String(required=True, validate=validate.OneOf(ResourceType.values()))
+    action = fields.String(required=True, validate=validate.OneOf(ActionType.values()))
+    roles = fields.Nested('RoleSchema', many=True, exclude=['permissions', 'users'])
+
+这样可以在序列化时避免循环引用，例如用户角色显示，但每个角色不显示users，或者仅在角色显示用户，但用户不显示角色。这可能取决于具体需求，用户给出的代码中的schema是否如此。
+
+综上，现在将所有这些内容整合到一个文件中，并处理可能的错误。
+
+可能需要注意，当使用marshmallow-sqlalchemy自动生成schema时，关联字段会自动包含，所以可能需要显式控制exclude或only参数。
+
+此外，用户给出的代码中，Role模型有一个User模型的关联查询字段，可能使用secondary=db.Table的关联表。
+
+因此，在User和Role之间是多对多关系，通过user_roles关联表。
+
+同样的，Role和Permission也是多对多关系，通过role_permissions关联表。
+
+因此，在模型定义中，它们的关系应该类似于：
+
+class User(db.Model):
+    #...
+    roles = db.relationship('Role', secondary=user_roles, backref=db.backref('users', lazy='dynamic'))
+
+class Role(db.Model):
+    #...
+    permissions = db.relationship('Permission', secondary=role_permissions, backref=db.backref('roles', lazy='dynamic'))
+
+user_roles = db.Table('user_roles',
+    db.Column('user_id', db.Integer(), db.ForeignKey('users.id')),
+    db.Column('role_id', db.Integer(), db.ForeignKey('roles.id'))
+)
+
+同理role_permissions表。
+
+综上，现在编写整合后的代码，处理所有关系，验证等。
+
+可能还需要导入Marshmallow-SQLAlchemy，但用户可能使用纯marshmallow。
+
+最后，处理所有可能的错误，例如schema的ValidationErrors，数据库异常，并返回相应的HTTP响应。
+
+综上，现在将用户提供的原始代码转换为一个功能完整的Flask应用，可以正确运行。
+追加到以下翻译的末尾
+
+### 回答部分
+根据需求翻译内容如下： 答：要使整个应用运行，我们需要对提供的代码进行一系列扩展，使其形成一个完整的Flask应用程序，包括模型定义、序列化层、API路由和错误处理。以下是分步实现。
+
+#### 初始化Flask应用和数据库
+首先定义Flask应用程序并初始化SQLAlchemy数据库：
+
+```python
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from marshmallow import Schema, fields, validate, ValidationError
+from datetime import datetime
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///authorization.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+```
+
+#### 定义模型类
+接下来定义数据库模型，包括`user_roles`和`role_permissions`多对多关联表格：
+
+```python
+# 多对多关联表格
+user_roles = db.Table('user_roles',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('role_id', db.Integer, db.ForeignKey('roles.id')))
+
+role_permissions = db.Table('role_permissions',
+    db.Column('role_id', db.Integer, db.ForeignKey('roles.id')),
+    db.Column('permission_id', db.Integer, db.ForeignKey('permissions.id')))
+
+# 用户模型
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    roles = db.session(db.Integer, db.ForeignKey('permissions.id'))
+    permissions = db.relationship('Permission', secondary=role_permissions, backref=db.backref('permissions', lazy='dynamic'))
+
+# 角色模型
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True, nullable=False)
+    users = db.relationship('User', secondary=user_roles, backref=db.backref('users', lazy='dynamic'))
+    permissions = db.relationship('Permission', secondary=role_permissions, backref=db.backref('permissions', lazy='dynamic'))
+
+# 权限模型
+class Permission(db.Model):
+    __tablename__ = 'permissions'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    resource_type = db.Column(db.String(50), nullable=False)
+    action = db.Column(db.String(50), nullable=False)
+```
+
+#### 序列化层 (Marshmallow Schema)
+接下来定义 Marshmallow Schema 类用于请求输入和响应的序列化与验证：
+
+```python
+# 枚举类，用于验证资源类型和动作
+class ResourceType:
+    @classmethod
+    def values(cls):
+        return ['document', 'account']
+
+class ActionType:
+    @classmethod
+    def values(cls):
+        return ['create', 'read', 'update', 'delete']
+
+# 用户 Schema
+class UserSchema(Schema):
+    id = fields.Int(dump_only=True)
+    name = fields.Str(required=True)
+    email = fields.Email(required=True)
+
+# 角色 Schema
+class RoleSchema(Schema):
+    id = fields.Int(dump_only=True)
+    name = fields.Str(required=True)
+
+# 权限 Schema
+class PermissionSchema(Schema):
+    id = fields.Int(dump_only=True)
+    name = fields.Str(required=True)
+    resource_type = fields.Str(required=True, validate=validate.OneOf(ResourceType.values()))
+    action = fields.Str(required=True, validate=validate.OneOf(ActionType.values()))
+```
+
+#### 实现 API 路由
+添加简单的路由示例，以创建用户、角色和权限：
+
+```python
+user_schema = UserSchema()
+role_schema = RoleSchema()
+permission_schema = PermissionSchema()
+
+@app.route('/users', methods=['POST'])
+def create_user():
+    data = request.get_json()
+    try:
+        result = user_schema.load(data)
+        db.session.add(User(**result))
+        db.session.commit()
+        return user_schema.dump(result), 201
+    except ValidationError as e:
+        return jsonify(e.messages), 400
+
+@app.route('/roles', methods=['POST'])
+def create_role():
+    data = request.get_json()
+    try:
+        result = role_schema.load(data)
+        db.session.add(Role(**result))
+        db.session.commit()
+        return role_schema.dump(result), 201
+    except ValidationError as e:
+        return jsonify(e.messages), 400
+
+@app.route('/permissions', methods=['POST'])
+def create_permission():
+    data = request.get_json()
+    try:
+        result = permission_schema.load(data)
+        db.session.add(Permission(**result))
+        db.session.commit()
+        return permission_schema.dump(result), 201
+    except ValidationError as e:
+        return jsonify(e.messages), 400
+```
+
+#### 错误处理
+最后，为应用程序添加一个通用的数据库操作异常处理程序：
+
+```python
+@app.errorhandler(500)
+def handle_server_error(e):
+    db.session.rollback()
+    return jsonify(error="Internal Server Error"), 500
+```
+
+#### 总结
+这个实现展示了如何结合 Flask、SQLAlchemy 和 Marshmallow 创建一个简单的权限授权系统，通过定义模型和序列化类来管理用户、角色和权限，并构建路由实现数据操作。通过扩展，可以进一步引入复杂的权限验证逻辑、API 文档（如 Swagger）和身份验证机制（如 JWT）。 追加到以下翻译的末尾
+
+答：要使整个应用运行，我们需要对提供的代码进行一系列扩展，使其形成一个完整的Flask应用程序，包括模型定义、序列化层、API路由和错误处理。以下是分步实现。
+
+初始化Flask应用和数据库
+首先定义Flask应用程序并初始化SQLAlchemy数据库：
+
+```python
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from marshmallow import Schema, fields, validate, ValidationError
+from datetime import datetime
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///authorization.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+```
+
+定义模型类
+接下来定义数据库模型，包括user_roles和role_permissions多对多关联表格：
+
+```python
+# 多对多关联表格
+user_roles = db.Table('user_roles',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('role_id', db.Integer, db.ForeignKey('roles.id')))
+
+role_permissions = db.Table('role_permissions',
+    db.Column('role_id', db.Integer, db.ForeignKey('roles.id')),
+    db.Column('permission_id', db.Integer, db.ForeignKey('permissions.id')))
+
+# 用户模型
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    roles = db.session(db.Integer, db.ForeignKey('permissions.id'))
+    permissions = db.relationship('Permission', secondary=role_permissions, backref=db.backref('permissions', lazy='dynamic'))
+
+# 角色模型
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True, nullable=False)
+    users = db.relationship('User', secondary=user_roles, backref=db.backref('users', lazy='dynamic'))
+    permissions = db.relationship('Permission', secondary=role_permissions, backref=db.backref('permissions', lazy='dynamic'))
+
+# 权限模型
+class Permission(db.Model):
+    __tablename__ = 'permissions'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    resource_type = db.Column(db.String(50), nullable=False)
+    action = db.Column(db.String(50), nullable=False)
+```
+
+实现API路由
+添加简单的路由示例，以创建用户、角色和权限：
+
+```python
+user_schema = UserSchema()
+role_schema = RoleSchema()
+permission_schema = PermissionSchema()
+
+@app.route('/users', methods=['POST'])
+def create_user():
+    data = request.get_json()
+    try:
+        result = user_schema.load(data)
+        db.session.add(User(**result))
+        db.session.commit()
+        return user_schema.dump(result), 201
+    except ValidationError as e:
+        return jsonify(e.messages), 400
+
+@app.route('/roles', methods=['POST'])
+def create_role():
+    data = request.get_json()
+    try:
+        result = role_schema.load(data)
+        db.session.add(Role(**result))
+        db.session.commit()
+        return role_schema.dump(result), 201
+    except ValidationError as e:
+        return jsonify(e.messages), 400
+
+@app.route('/permissions', methods=['POST'])
+def create_permission():
+    data = request.get_json()
+    try:
+        result = permission_schema.load(data)
+        db.session.add(Permission(**result))
+        db.session.commit()
+        return permission_schema.dump(result), 201
+    except ValidationError as e:
+        return jsonify(e.messages), 400
+```
+
+总结
+这个实现展示了如何结合Flask、SQLAlchemy和Marshmallow创建一个简单的权限授权系统，通过定义模型和序列化类来管理用户、角色和权限，并构建路由实现数据操作。通过扩展，可以进一步引入复杂的权限验证逻辑、API文档（如Swagger）和身份验证机制（如JWT）。
+
+
+Assistant: 为了创建一个完善的权限授权系统，我们需要确保应用程序不仅能处理用户、角色和权限的创建，还能验证用户身份并根据权限限制访问特定资源。为了实现这一目标，我们将扩展前面的实现，通过添加权限验证以及身份验证机制（如 JWT）来增强系统的安全性。以下是如何实现这些功能的详细步骤。
+
+### 引入身份验证：JWT
+我们使用 JWT（JSON Web Token）作为身份验证机制，因为它可以在无状态的 Web 应用中安全地存储用户身份信息。安装 Flask-JWT-Extended 包以实现 JWT 验证：
+
+```bash
+pip install Flask-JWT-Extended
+```
+
+然后，在 Flask 应用中启用 JWT 并添加登录接口：
+
+```python
+from flask_jwt_extended import (
+    JWTManager, create_access_token,
+    jwt_required, get_jwt_identity
+)
+
+app.config['JWT_SECRET_KEY'] = 'your-secret-key'  # 可以使用更安全的随机生成密钥
+jwt = JWTManager(app)
+
+# 模拟用户数据库（实际应使用数据库查询）
+users = {
+    "admin": {"password": "admin123", "role": "admin"},
+    "user1": {"password": "password123", "role": "user"}
+}
+
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.json.get("username", None)
+    password = request.json.get("password", None)
+    
+    # 验证用户是否存在并匹配密码
+    user = users.get(username)
+    if user and user['password'] == password:
+        access_token = create_access_token(identity={"username": username, "role": user['role']})
+        return jsonify(access_token=access_token), 200
+    
+    return jsonify({"msg": "Invalid credentials"}), 401
+```
+
+### 定义角色权限检查逻辑
+我们可以在数据库中为权限（Permission）模型添加“角色”字段，这样可以根据角色来判断用户是否有权执行特定操作：
+
+```python
+# 更新权限模型，添加角色字段
+class Permission(db.Model):
+    __tablename__ = 'permissions'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    resource_type = db.Column(db.String(50), nullable=False)
+    action = db.Column(db.String(50), nullable=False)
+    role_required = db.Column(db.String(50), nullable=False)  # 例如 "admin" 或 "user"
+```
+
+在路由中，我们可以结合 JWT 的 `get_jwt_identity()` 来判断用户角色并验证其权限：
+
+```python
+@app.route('/protected', methods=['GET'])
+@jwt_required()
+def protected():
+    current_user = get_jwt_identity()  # 获取当前用户的 JWT 数据
+    user_role = current_user['role']
+
+    # 检查用户是否具有访问特定资源的权限
+    required_permission = Permission.query.filter_by(
+        name='view_resource', 
+        resource_type='dashboard', 
+        action='read',
+        role_required=user_role
+    ).first()
+
+    if required_permission:
+        return jsonify(logged_in_as=current_user), 200
+    else:
+        return jsonify({"msg": "Access denied"}), 403
+```
+
+### 权限验证中间件
+你还可以创建一个通用的装饰器，来检查特定 API 接口的访问权限。这样可以避免在每个路由中重复编写权限检查逻辑：
+
+```python
+from functools import wraps
+from flask import request
+
+def permission_required(permission_name, resource_type, action):
+    def decorator(fn):
+        @wraps(fn)
+        @jwt_required()
+        def wrapper(*args, **kwargs):
+            current_user = get_jwt_identity()
+            user_role = current_user['role']
+
+            permission = Permission.query.filter_by(
+                name=permission_name,
+                resource_type=resource_type,
+                action=action,
+                role_required=user_role
+            ).first()
+
+            if not permission:
+                return jsonify({"msg": "Permission denied"}), 403
+
+            return fn(*args, **kwargs)
+        return wrapper
+    return decorator
+```
+
+然后你可以使用这个装饰器在你的路由中应用权限控制：
+
+```python
+@app.route('/edit-resource', methods=['POST'])
+@permission_required(permission_name='edit_content', resource_type='blog', action='write')
+def edit_resource():
+    return jsonify({"msg": "You can edit the blog post!"}), 200
