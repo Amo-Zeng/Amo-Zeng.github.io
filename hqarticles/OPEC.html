@@ -1,0 +1,43 @@
+
+<!-- 骨架屏占位 -->
+<div class="loading-skeleton" 
+     style="display: block; height: 300px;">
+</div>
+<div class="article-content" 
+     style="display: none;">
+    [实际内容]
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    document.querySelector('.loading-skeleton').style.display = 'none';
+    document.querySelector('.article-content').style.display = 'block';
+  });
+</script>
+```
+
+六、数据可视化建议
+1. 动态图表方案
+```javascript
+// 使用Chart.js创建数据泄露趋势图
+const ctx = document.getElementById('breachChart');
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['2020', '2021', '2022', '2023'],
+        datasets: [{
+            label: '数据泄露事件数',
+            data: [3600, 4100, 5200, 6500],
+            borderColor: '#e74c3c',
+            fill: true
+        }]
+    },
+    options: {
+        responsive: true,
+        elements: { line: { tension: 0.3 } },
+        plugins: {
+            legend: {display: false},
+            tooltip: {enabled: true}
+        }
+    }
+});
