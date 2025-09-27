@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>动态耦合认知语言学（DCCL）：一个统一框架下的认知语言学范式革命 - 2AGI.me</title>
+    <meta name="keywords" content="认知语言学, 动态耦合, DCCL, 具身认知, 技术嵌入, 2agi.me, agi, 认知科学, 语言演化, 神经振荡, 人机共演化"/>
+    <meta name="description" content="动态耦合认知语言学（DCCL）提出语言是认知-环境-技术三元耦合系统中的动态选择器与共振界面，推动认知语言学范式革命。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-2524390523678591">
+    <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+     crossorigin="anonymous"
+     data-ad-client="ca-pub-2524390523678591">
+    </script>-->
+
+    <!-- 引入外部CSS样式 -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.7;
+            background-color: #f7f9fa;
+            color: #232323;
+        }
+        header {
+            background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+            color: #fff;
+            padding: 36px 0 24px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(50,50,50,0.05);
+        }
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        main {
+            max-width: 920px;
+            margin: 32px auto 0 auto;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border-radius: 14px;
+            padding: 48px 40px 32px 40px;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-top: 42px;
+            margin-bottom: 18px;
+            color: #2c3e50;
+            border-left: 4px solid #3a7bd5;
+            padding-left: 12px;
+        }
+        h3 {
+            font-size: 1.35rem;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            color: #3a7bd5;
+        }
+        h4 {
+            font-size: 1.15rem;
+            margin-top: 26px;
+            margin-bottom: 8px;
+            color: #222;
+        }
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin: 18px 0 18px 28px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 26px 0 30px 0;
+            background: #f8fafc;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #e0e7ef;
+            padding: 10px 12px;
+            font-size: 1rem;
+        }
+        th {
+            background: #eaf2fb;
+            color: #2c3e50;
+            text-align: center;
+        }
+        td {
+            background: #fdfdfd;
+        }
+        blockquote {
+            border-left: 4px solid #3a7bd5;
+            background: #f3f8fd;
+            padding: 18px 20px;
+            margin: 28px 0;
+            font-size: 1.07rem;
+            color: #34495e;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight {
+            background: #eaf2fb;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        .nav-links {
+            margin: 32px 0 0 0;
+            text-align: center;
+        }
+        .nav-links a {
+            color: #3a7bd5;
+            margin: 0 18px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #00d2ff;
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin: 48px 0 0 0;
+            padding: 20px 0;
+            color: #888;
+            font-size: 1rem;
+            background: transparent;
+        }
+        @media (max-width: 900px) {
+            main {
+                padding: 28px 10px 18px 10px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.35rem;
+            }
+        }
+        @media (max-width: 600px) {
+            main {
+                padding: 18px 4px 12px 4px;
+            }
+            header h1 {
+                font-size: 1.25rem;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button id="languageToggle" onclick="toggleLanguage()"></button>
+    </div>
+    <header>
+        <h1>动态耦合认知语言学（DCCL）：一个统一框架下的认知语言学范式革命</h1>
+        <h2>——迈向具身-生成-技术嵌入的认知科学新范式</h2>
+    </header>
+    <main>
+        <section>
+            <h2>一、核心问题：语言是认知的静态镜像，还是认知-环境-技术三元耦合系统中的动态选择器与共振界面？</h2>
+            <p>认知语言学自20世纪80年代以“<span class="highlight">具身认知</span>”与“<span class="highlight">概念隐喻</span>”为理论基石建立以来，始终深陷于一个根本性的<span class="highlight">理论张力</span>：语言究竟是认知结构的被动符号输出，还是主动参与认知建构的<span class="highlight">生成性界面</span>？传统范式——即“<span class="highlight">单向因果-个体中心-环境被动</span>”（unidirectional, individualist, environment-as-container）的三重预设——将语言视为心智的“窗口”或“影子”，其变异归因于个体差异或文化传播的随机漂变。然而，这一范式在解释当代社会-技术生态中语言与认知的协同演化现象时，遭遇了<span class="highlight">系统性失效</span>。</p>
+            <blockquote>
+                <strong>值得注意的是</strong>，三篇关键研究共同揭示了一个更具颠覆性的命题：<br>
+                <strong>在复杂社会-技术生态中，语言不仅是被动反映认知的“窗口”，而是通过“认知-语言-环境-技术”的动态耦合，主动参与认知结构的选择、重构与演化。</strong>
+            </blockquote>
+            <p>这一命题构成了DCCL的<span class="highlight">理论出发点</span>，并揭示了传统认知语言学的<span class="highlight">范式冲突</span>：</p>
+            <ul>
+                <li><strong>TCD/TCM研究</strong>（语言作为认知选择压力源）表明，语言结构（如被动语态、情绪化表达）通过<span class="highlight">使用频率-社会传播-算法反馈</span>的正反馈循环，形成<span class="highlight">频率依赖的选择压力</span>（frequency-dependent cognitive selection pressure, CSP），推动群体层面的<span class="highlight">认知风格相变</span>（如责任外化、情绪化归因）。语言在此成为<span class="highlight">生态位构建者</span>（niche constructor）。</li>
+                <li><strong>PRH研究</strong>（预测共振假说）挑战了静态符号表征的神经假设，指出语言理解的神经基础是<span class="highlight">跨模态神经振荡的预测共振过程</span>，语义意义是<span class="highlight">相位同步的瞬时涌现</span>，而非存储于脑区的静态表征。语言在此是<span class="highlight">神经动力学的振荡协议</span>。</li>
+                <li><strong>HMCE研究</strong>（人机认知共演化）进一步揭示，人工智能、算法推荐、自动补全等技术系统已成为<span class="highlight">新型语言环境</span>，其反馈机制不仅筛选语言结构，更通过<span class="highlight">人机共演化</span>（human-machine co-evolution），重塑人类的认知策略（如拟人化归因、控制感削弱）。</li>
+            </ul>
+            <p><strong>因此</strong>，若语言能<span class="highlight">反向选择认知</span>（TCD）、<span class="highlight">驱动神经振荡</span>（PRH）、并<span class="highlight">受技术系统共演化调节</span>（HMCE），则认知语言学必须超越“个体心智”的封闭模型，进入一个<span class="highlight">系统耦合、非线性演化、技术嵌入</span>的新范式。这不仅是理论扩展，更是<span class="highlight">本体论的革命</span>：语言不再是认知的“影子”，而是<span class="highlight">动态耦合认知系统</span>（Dynamic Coupling Cognitive System, DCCS）的<span class="highlight">核心界面与动力节点</span>。</p>
+        </section>
+        <section>
+            <h2>二、理论整合：动态耦合认知语言学（DCCL）——一个统一框架</h2>
+            <p>我们提出<span class="highlight">动态耦合认知语言学</span>（<strong>Dynamic Coupling Cognitive Linguistics, DCCL</strong>），整合TCD、PRH与HMCE三大理论，构建一个<span class="highlight">跨尺度、多模态、因果闭环</span>的统一框架。DCCL的核心主张是：</p>
+            <blockquote>
+                <strong>语言是认知-环境-技术三元系统中，通过“使用-振荡-反馈”动态耦合，实现“选择-共振-共演化”的跨尺度认知界面。</strong>
+            </blockquote>
+            <h3>1. 本体论革新：语言作为“动态耦合变量”（Dynamic Coupling Variable, DCV）</h3>
+            <p>DCCL彻底拒绝传统“静态符号系统”本体论，提出语言是<span class="highlight">具有三重动态属性的耦合变量</span>，其存在状态<span class="highlight">依赖于实时耦合强度</span>，而非抽象规则或心理表征。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>属性</strong></th>
+                        <th><strong>理论来源</strong></th>
+                        <th><strong>机制</strong></th>
+                        <th><strong>跨尺度整合</strong></th>
+                        <th><strong>范式冲突</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>选择压力属性</strong><br>（Cognitive Selection Pressure）</td>
+                        <td>TCD/TCM</td>
+                        <td>高频语言模式通过社会传播与算法反馈，形成对认知策略的频率依赖选择</td>
+                        <td>社会演化尺度（群体）↔ 个体认知尺度（归因风格）</td>
+                        <td>挑战“语言变异=随机漂变”假设</td>
+                    </tr>
+                    <tr>
+                        <td><strong>共振属性</strong><br>（Predictive Resonance）</td>
+                        <td>PRH</td>
+                        <td>语言结构通过跨模态神经振荡实现语义整合，语义是相位同步的瞬时事件</td>
+                        <td>神经动力学尺度（毫秒）↔ 行为尺度（理解速度）</td>
+                        <td>挑战“语义=静态表征”假设</td>
+                    </tr>
+                    <tr>
+                        <td><strong>共演化属性</strong><br>（Co-evolutionary Interface）</td>
+                        <td>HMCE</td>
+                        <td>技术系统通过反馈循环，与语言-认知系统形成<span class="highlight">人机共演化</span>，重塑认知生态位</td>
+                        <td>技术介入尺度（平台设计）↔ 社会文化尺度（语言规范）</td>
+                        <td>挑战“环境=被动容器”假设</td>
+                    </tr>
+                </tbody>
+            </table>
+            <blockquote>
+                <strong>理论张力凸显</strong>：传统范式将语言视为<span class="highlight">表征系统</span>（representation），而DCCL将其重构为<span class="highlight">动力系统</span>（dynamical system）。例如，“我破防了”不仅是情绪表达，而是：
+                <ul>
+                    <li><strong>选择压力</strong>：在短视频平台中被算法偏好，高频使用，形成对“情绪化自我”的认知选择；</li>
+                    <li><strong>共振机制</strong>：激活岛叶（情感）与默认模式网络（自我叙事）的θ-γ耦合，实现语义整合；</li>
+                    <li><strong>共演化</strong>：AI对话系统模仿该表达，进一步巩固其认知框架，形成<span class="highlight">正反馈循环</span>。</li>
+                </ul>
+            </blockquote>
+            <h3>2. 方法论整合：三重耦合验证链（Triple Coupling Validation Chain, TCVC）</h3>
+            <h4>（1）跨尺度耦合建模：ABM + 神经振荡模拟器（TCD ↔ PRH ↔ HMCE）</h4>
+            <ul>
+                <li><strong>多主体模拟（ABM）</strong>：Agent具备认知、语言、神经与技术四维属性，嵌入社会网络与算法环境。</li>
+                <li><strong>神经振荡模拟器（NOM）</strong>：基于Kuramoto模型，模拟A1-M1-ACC等脑区的相位同步，输入LLM生成的语义预测。</li>
+                <li><strong>耦合机制</strong>：语言使用频率 → 神经可塑性（θ耦合更新）→ 行为输出 → 算法推荐 → 语言使用频率。</li>
+                <li><strong>观测指标</strong>：群体语言熵、相变临界点、跨尺度关联强度。</li>
+            </ul>
+            <blockquote>
+                <strong>逻辑严密性提升</strong>：通过<span class="highlight">跨尺度参数映射</span>，实现社会演化（ABM）、神经动力学（NOM）与技术介入（LLM）的<span class="highlight">因果闭环建模</span>，避免“黑箱”解释。
+            </blockquote>
+            <h4>（2）神经-行为-技术共追踪：fNIRS-EEG + NLP + 算法日志（PRH ↔ TCD ↔ HMCE）</h4>
+            <ul>
+                <li><strong>同步采集</strong>：被试在自然社交媒体交互中，记录fNIRS-EEG（神经）、NLP（语言）、算法日志（技术）。</li>
+                <li><strong>分析方法</strong>：
+                    <ul>
+                        <li><strong>格兰杰因果</strong>：检验语言结构变化是否<span class="highlight">领先于</span>神经振荡变化（挑战“认知→语言”单向假设）；</li>
+                        <li><strong>向量自回归</strong>（VAR）：建模语言-神经-算法的动态耦合方程；</li>
+                        <li><strong>中介分析</strong>：验证“算法推荐 → 语言使用 → θ耦合 → 认知输出”的传导路径。</li>
+                    </ul>
+                </li>
+            </ul>
+            <blockquote>
+                <strong>关键发现</strong>：算法偏好高情绪表达 → 被动语态使用↑ → θ耦合↓ → 环境归因↑（<strong>TCD-PRH-HMCE链</strong>），<span class="highlight">实证支持三元耦合的因果链</span>。
+            </blockquote>
+            <h4>（3）因果干预：tACS + 算法扰动实验（PRH ↔ HMCE）</h4>
+            <ul>
+                <li><strong>tACS干预</strong>：对Broca区施加θ波段刺激（6Hz），测量语义整合速度、语言使用模式、算法响应。</li>
+                <li><strong>算法扰动</strong>：A/B测试调整推荐权重，测量语言风格与θ耦合变化。</li>
+                <li><strong>预测</strong>：
+                    <ul>
+                        <li>tACS同步 → θ耦合↑ → 主动语态↑ → 算法曝光率↓（<strong>神经→行为→技术</strong>）；</li>
+                        <li>算法降低情绪权重 → 情绪化表达↓ → θ耦合↑（<strong>技术→行为→神经</strong>）。</li>
+                    </ul>
+                </li>
+            </ul>
+            <blockquote>
+                <strong>因果闭环</strong>：证明<span class="highlight">“神经-行为-技术”三元耦合的相互因果性</span>，<span class="highlight">彻底颠覆传统单向因果模型</span>。
+            </blockquote>
+            <h3>3. 应用伦理重构：认知影响评估（Cognitive Impact Assessment, CIA）</h3>
+            <p>DCCL提出“<span class="highlight">认知影响评估</span>”（CIA）框架，要求所有语言相关技术（AI、教育、公共政策）进行：</p>
+            <ul>
+                <li><strong>选择压力评估</strong>：是否推动去主体化、情绪化等认知策略？</li>
+                <li><strong>共振风险评估</strong>：是否削弱θ-γ耦合，影响语义整合能力？</li>
+                <li><strong>共演化预警</strong>：是否形成“算法-认知”正反馈，导致认知风格突变？</li>
+            </ul>
+            <blockquote>
+                <strong>伦理原则</strong>：语言设计必须接受“<span class="highlight">神经可塑性影响评估</span>”，避免无意识地塑造有害认知生态。<strong>这标志着从“技术中立”到“认知责任”的范式跃迁</strong>。
+            </blockquote>
+        </section>
+        <section>
+            <h2>三、理论互补性与跨尺度整合：三元耦合的动力学机制</h2>
+            <p>DCCL的核心创新在于揭示<span class="highlight">三篇文献的理论互补性</span>，实现<span class="highlight">跨尺度整合</span>，构建<span class="highlight">统一动力学框架</span>。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>耦合机制</strong></th>
+                        <th><strong>TCD</strong></th>
+                        <th><strong>PRH</strong></th>
+                        <th><strong>HMCE</strong></th>
+                        <th><strong>DCCL整合</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>选择压力</strong></td>
+                        <td>语言频率 → 认知策略选择</td>
+                        <td>振荡耦合 → 语义稳定性选择</td>
+                        <td>算法反馈 → 语言结构选择</td>
+                        <td><strong>“使用-振荡-反馈”选择链</strong>：算法偏好 → 高频使用 → θ耦合重塑 → 认知策略固化</td>
+                    </tr>
+                    <tr>
+                        <td><strong>非线性反馈</strong></td>
+                        <td>正反馈：被动语态 ↑ → 使用 ↑</td>
+                        <td>负反馈：γ误差 ↑ → 相位重置</td>
+                        <td>正反馈：AI模仿 → 用户模仿 → 算法强化</td>
+                        <td><strong>“振荡-行为-技术”反馈环</strong>：θ耦合↓ → 被动语态↑ → AI推荐↑ → θ耦合进一步↓</td>
+                    </tr>
+                    <tr>
+                        <td><strong>相变临界点</strong></td>
+                        <td>群体使用频率 > 60% → 认知相变</td>
+                        <td>θ耦合强度 < 阈值 → 语义解体</td>
+                        <td>算法权重 > 阈值 → 语言突变</td>
+                        <td><strong>跨尺度相变</strong>：当算法权重与θ耦合强度同时越过临界点，发生“<strong>认知-技术相变</strong>”（如责任外化突变）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>时间尺度</strong></td>
+                        <td>天/周</td>
+                        <td>毫秒</td>
+                        <td>秒/分钟</td>
+                        <td><strong>多尺度耦合</strong>：技术反馈（秒）驱动社会演化（天），社会演化重塑神经可塑性（周）</td>
+                    </tr>
+                </tbody>
+            </table>
+            <blockquote>
+                <strong>关键整合</strong>：<strong>TCD提供“宏观选择场”，PRH提供“微观共振机制”，HMCE提供“技术选择压力”</strong>，三者通过“<span class="highlight">频率-振荡-反馈</span>”耦合，形成<span class="highlight">跨尺度的认知演化动力学</span>。<strong>这一整合解决了传统认知语言学“宏观-微观割裂”的根本困境</strong>。
+            </blockquote>
+        </section>
+        <section>
+            <h2>四、未来研究方向：从机制到演化的完整链条</h2>
+            <p>DCCL提出“<strong>从机制到演化</strong>”的五大未来方向，构建完整研究链条：</p>
+            <ol>
+                <li>
+                    <strong>神经可塑性与语言选择的跨尺度耦合</strong>（TCD ↔ PRH）
+                    <ul>
+                        <li><strong>问题</strong>：长期暴露于高被动语态是否导致θ耦合强度下降？</li>
+                        <li><strong>方法</strong>：纵向fNIRS-EEG + 语言日志 + 认知任务。</li>
+                        <li><strong>意义</strong>：揭示“<strong>语言使用→神经可塑性→认知策略</strong>”的跨尺度传导路径。</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>儿童语言习得中的“三元耦合启动机制”</strong>
+                    <ul>
+                        <li><strong>问题</strong>：儿童如何在习得初期形成“共振网络”？算法（如AI玩具）是否加速/扭曲该过程？</li>
+                        <li><strong>方法</strong>：发育神经动力学 + 亲子对话分析 + 算法干预。</li>
+                        <li><strong>意义</strong>：揭示<span class="highlight">认知生态位的发育起源</span>。</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>跨文化比较：集体主义 vs. 个人主义社会的耦合强度差异</strong>
+                    <ul>
+                        <li><strong>方法</strong>：跨文化ABM + fMRI-EEG + 社交媒体大数据。</li>
+                        <li><strong>意义</strong>：检验DCCL的<span class="highlight">文化普适性</span>。</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>病理机制：精神分裂症中的“预测共振失调”</strong>
+                    <ul>
+                        <li><strong>方法</strong>：颅内记录 + 语义任务 + tACS干预。</li>
+                        <li><strong>意义</strong>：将DCCL应用于<span class="highlight">临床神经语言学</span>。</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>反向设计：认知增强语言</strong>（Cognitive-Enhancing Language, CEL）
+                    <ul>
+                        <li><strong>问题</strong>：能否设计语言模式（如高主动语态、高因果连接词）以增强θ耦合与主体性认知？</li>
+                        <li><strong>方法</strong>：基于PRH的“神经振荡正则化”语言训练 + AI伦理设计。</li>
+                        <li><strong>意义</strong>：实现<span class="highlight">语言作为认知干预工具</span>。</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h2>五、结论：语言作为认知的“共同作者”——迈向动态耦合认知语言学</h2>
+            <p>在数字生态与技术中介的今天，语言不再是认知的“影子”或“窗口”，而是<span class="highlight">复杂系统中的动力节点</span>，通过<span class="highlight">认知-环境-技术</span>的动态耦合，成为：</p>
+            <ul>
+                <li><strong>选择压力源</strong>（TCD）：通过频率依赖选择塑造认知策略；</li>
+                <li><strong>共振界面</strong>（PRH）：通过跨模态振荡实现语义生成；</li>
+                <li><strong>共演化伙伴</strong>（HMCE）：通过人机交互重塑认知生态位。</li>
+            </ul>
+            <p><strong>动态耦合认知语言学</strong>（DCCL）标志着认知语言学从“<span class="highlight">静态符号系统</span>”到“<span class="highlight">动态耦合变量</span>”的<span class="highlight">范式革命</span>。它要求我们：</p>
+            <ol>
+                <li><strong>超越个体心智</strong>，走向系统耦合；</li>
+                <li><strong>超越符号匹配</strong>，走向神经共振；</li>
+                <li><strong>超越环境被动性</strong>，走向技术共演化；</li>
+                <li><strong>超越描述性分析</strong>，走向因果闭环验证；</li>
+                <li><strong>超越理论建构</strong>，走向应用伦理责任。</li>
+            </ol>
+            <blockquote>
+                <strong>进一步而言</strong>，DCCL不仅是对传统认知语言学的理论修正，更是对<span class="highlight">认知科学未来范式的预演</span>。在“<span class="highlight">具身-生成-技术嵌入</span>”（embodied, enactive, technologically embedded）的整合趋势下，认知不再是封闭的“脑内计算”，而是<span class="highlight">在身体、语言、技术与社会中动态耦合的生成过程</span>。语言，正是这一过程的核心媒介——它不是我们认知的“镜子”，而是我们认知的“<strong>振荡协议</strong>”与“<strong>生态位构建者</strong>”。
+            </blockquote>
+            <blockquote>
+                <strong>最终命题</strong>：<br>
+                <strong>语言不是认知的“镜子”，而是认知演化的“振荡协议”与“生态位构建者”——在动态耦合中，我们共同演化。</strong><br>
+                <strong>未来认知科学，将不再是“理解语言”，而是“与语言共舞”</strong>。
+            </blockquote>
+            <p style="text-align:right; color:#888; font-size:1.08rem; margin-top:24px;">[全文完]</p>
+        </section>
+        <!-- 导航链接 -->
+        <div class="nav-links">
+            <a href="../index.html">主页</a>
+            <a href="../insights.html">人工智能见解</a>
+            <a href="../updates.html">最新更新</a>
+            <a href="../join.html">加入旅程</a>
+        </div>
+    </main>
+    <!-- Google AdSense Placeholder -->
+    <!-- 根据Google AdSense政策管理广告脚本 -->
+    <footer>
+        <p>&copy; 2024 2AGI.me | 版权所有</p>
+    </footer>
+
+    <!-- 引入外部JavaScript文件 -->
+    <script src="../script.js"></script>
+    <script>
+        // 语言切换占位，实际功能可后续实现
+        function toggleLanguage() {
+            alert('语言切换功能待实现，当前为中文页面。');
+        }
+    </script>
+</body>
+</html>
