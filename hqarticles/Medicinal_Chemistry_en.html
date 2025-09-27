@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>APA Style References</title>
+  <style>
+    ol {
+      list-style: none;
+      counter-reset: item;
+      padding-left: 0;
+    }
+
+    ol li {
+      margin-bottom: 1em;
+    }
+
+    ol li::before {
+      counter-increment: item;
+      content: "[" counter(item) "]";
+      display: inline-block;
+      width: 30px;
+      font-weight: bold;
+      color: #333;
+      margin-right: 10px;
+    }
+
+    .citation {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .citation .title {
+      /* APA 标题：仅首字母和专有名词大写 */
+      text-transform: none;
+    }
+
+    .citation .journal {
+      font-style: italic;
+    }
+
+    .url {
+      word-break: break-all;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 600px) {
+      .citation {
+        font-size: 14px;
+      }
+
+      ol li::before {
+        display: block;
+        width: auto;
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>References</h1>
+  <ol>
+    <li>
+      <div class="citation">
+        Author, A., & Author, B. (2023). <span class="title">Title of the article</span>. <em class="journal">Name of the Journal, 10</em>(2), 100–105. <a href="https://doi.org/1234/abcd123" class="url">https://doi.org/1234/abcd123</a>
+      </div>
+    </li>
+    <li>
+      <div class="citation">
+        Smith, J., & Lee, T. (2022). <span class="title">Another research paper title</span>. <em class="journal">Journal of Studies in Education, 8</em>(4), 200–217.
+      </div>
+    </li>
+  </ol>
+
+  <p>Here is an in-text citation example: [1].</p>
+</body>
+</html>
