@@ -1,0 +1,58 @@
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SEO优化技术详解",
+  "description": "本文详细讲解HTML文档在SEO优化方面的实现技术点...",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://example.com/article/seo-optimization"
+  }
+}
+</script>
+```
+
+结构化数据可以帮助在谷歌的富媒体摘要（富媒体结果）中显示，提升点击率。
+
+---
+
+## ✅ 4. **页面加载性能优化**
+
+| 技术点 | 示例代码 | 说明 |
+|--------|----------|------|
+| `<script defer>` 加载脚本 | `<script defer src="/js/main.js"></script>` | 延迟加载脚本，不阻塞 HTML 解析，提高首屏加载速度 |
+| `<script async>` 加载异步脚本 | `<script async src="/analytics.js"></script>`（示例） | 非阻塞加载异步脚本，适合无依赖的库（如统计代码） |
+| 外部样式优化 | `<link rel="stylesheet" href="/css/main.css">` | 易于缓存和复用，减少页面体积 |
+| 明确设置图片尺寸 | `<img width="600" height="400" src="..." alt="描述文字">` | 有助于浏览器布局，避免布局抖动（CLS） |
+
+---
+
+## ✅ 5. **内容相关性与关键词使用**
+
+| 技术点 | 示例代码 | 说明 |
+|--------|----------|------|
+| 正文中自然使用关键词 | `<h2>SEO优化的技术点分析</h2>` | 在正文、标题、链接中合理使用关键词，提高搜索引擎相关性判断 |
+| 内部链接 | `<a href="#regulation-comparison">法规对照表</a>` | 有助于爬虫抓取、提升页面权重分布 |
+| 相关内容推荐 | `<aside class="related-resources"> <a href="/whitepapers/...">下载白皮书</a> </aside>` | 延长用户停留时间，也有助于搜索引擎判断页面质量 |
+
+---
+
+## ✅ 6. **可访问性（Accessibility）支持**
+
+| 技术点 | 示例代码 | 说明 |
+|--------|----------|------|
+| 使用 `alt` 属性描述图片 | `<img src="chart.png" alt="数据可视化图表展示SEO结构优化">` | 不仅利于盲人辅助技术，也有助于搜索引擎识别图片内容 |
+| 使用 `role="contentinfo"` | `<footer role="contentinfo">` | 标准化语义，增强可访问性结构 |
+| 清晰的导航与结构 | `<nav>`、`<section>`、`<article>` | 利于搜索引擎抓取内容结构和核心信息段落 |
+
+---
+
+## ✅ 7. **移动端适应性**
+
+虽然 HTML 文档中没有明确展示，但可以通过以下方式增强移动端 SEO：
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="canonical" href="https://example.com/article/seo-optimization">
