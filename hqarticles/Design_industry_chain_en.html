@@ -1,0 +1,30 @@
+
+   <button aria-label="切换中文/英语版本">Language Switch</button>
+   <section aria-labelledby="dp-section">
+     <h2 id="dp-section">差分隐私</h2>
+   </section>
+   ```
+
+2. **广告脚本隔离**
+   ```html
+   <!-- 将广告加载延迟至主内容渲染后 -->
+   <div id="ad-banner" data-google-ad="true"></div>
+   <script>
+   window.addEventListener('load', () => {
+     const script = document.createElement('script');
+     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+     document.body.appendChild(script);
+   });
+   </script>
+   ```
+
+3. **版权信息语义化**
+   ```html
+   <footer role="contentinfo">
+     <p>© 2023-2024 隐私技术白皮书</p>
+     <nav aria-label="法律链接">
+       <a href="/privacy-policy">隐私政策</a>
+       <a href="/terms">使用条款</a>
+     </nav>
+   </footer>
+   
