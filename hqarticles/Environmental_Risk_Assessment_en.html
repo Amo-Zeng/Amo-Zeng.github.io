@@ -1,0 +1,67 @@
+
+     <header class="site-header" role="banner">
+       <h2 class="site-title">AI Insights</h2> <!-- Changed to H2 -->
+     </header>
+     <article class="post" id="main-content"> <!-- H1 here -->
+       <h1>Current Trends in AI</h1>
+     </article>
+     ```
+
+3. **Forms & Input Focus:**
+   - **Missing `:focus` Styles:** Inputs lack custom focus indicators, relying on default browser outlines. Add styles to ensure visibility:
+     ```css
+     input[type="text"], input[type="email"], textarea {
+       outline: 3px solid #3498db; /* Custom focus style */
+     }
+     ```
+
+### **CSS & Responsiveness**
+4. **Missing Media Queries:**
+   - Despite the `viewport` meta tag, responsive adjustments are missing. Implement media queries for mobile:
+     ```css
+     @media (max-width: 600px) {
+       .hero-content h2 {
+         font-size: 1.5rem;
+       }
+     }
+     ```
+
+5. **Color Contrast:**
+   - The link color `#3498db` on dark backgrounds has a contrast ratio of 4.5:1, meeting AA standards but may not be optimal for all users. Consider darker variants for better accessibility:
+     ```css
+     a {
+       color: #016087; /* Darker blue for improved contrast */
+     }
+     ```
+
+### **JavaScript & Usability**
+6. **Modal Accessibility:**
+   - **Keyboard Traps:** Close the modal with the `Escape` key and trap focus within it when active:
+     ```javascript
+     document.addEventListener('keydown', function(event) {
+       if (event.key === 'Escape' && modal.classList.contains('visible')) {
+         toggleModal();
+       }
+     });
+     ```
+   - **Focus Management:** Use `element.focus()` to return focus to the toggle button after closing the modal.
+
+7. **Form Submission:**
+   - The form lacks a `method` and `action` attribute. For demos, use `#` to simulate:
+     ```html
+     <form name="contact" method="POST" action="#">
+     ```
+
+### **Enhancements for Better UX**
+8. **Landmark Roles:**
+   - Add `role="navigation"` to the nav section and `role="complementary"` to sidebars for explicit screen reader labeling:
+     ```html
+     <nav role="navigation">...</nav>
+     <aside role="complementary">...</aside>
+     ```
+
+9. **Image Alt Text:**
+   - The hero image uses `alt=""`, which is appropriate for decorative visuals. If the image is informative, provide descriptive text:
+     ```html
+     <img src="ai-image.jpg" alt="Diverse professionals collaborating on AI concepts">
+     
