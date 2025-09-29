@@ -1,0 +1,144 @@
+
+     <script>
+       // Properly closed inline script
+       document.write("Hello World");
+     </script>
+  
+  **Avoid incorrect structures**, such as:
+  html
+  <script src="script.js"  <!-- Error: Tag not properly closed -->
+  
+
+- **Escape Special Characters Inside Inline Scripts**  
+  If the script contains the string `</script>`, escape it as `<\/script>` to prevent the browser from prematurely closing the script:
+  html
+  <script>
+    var str = "<\/script>"; // Correct escaping
+  </script>
+  
+
+---
+
+### 2. **Validate HTML Document Structure**
+
+- **Ensure Text Content is Nested Within Block-Level Elements**  
+  Text directly inside `<body>` should be wrapped in a block-level element such as `<p>` or `<div>`. For example:
+  html
+  <body>
+    <script src="script.js"></script>
+    <p>Page content goes here</p> <!-- Avoid standalone text: invalid HTML -->
+  </body>
+  
+
+- **Confirm DOCTYPE is Set to HTML5**  
+  Ensure the document starts with a standard `<!DOCTYPE html>` declaration:
+  html
+  <!DOCTYPE html>
+  <html lang="en">
+  
+
+---
+
+### 3. **Identify and Fix Specific Errors**
+
+Use an [HTML validation service (e.g., W3C Validator)](https://validator.w3.org/) to upload your HTML file or input a URL. This will provide **specific error locations** (line and column numbers), allowing focused fixes. For example:
+
+- **Validator reports unexpected text at line 15:**
+  html
+  <!-- Error example: text directly following a script tag -->
+  <script src="script.js"></script>
+  Important Notice: Maintenance in progress! <!-- Invalid parsing -->
+  
+  **Corrected version:**
+  html
+  <script src="script.js"></script>
+  <p>Important Notice: Maintenance in progress!</p> <!-- Valid structure -->
+  
+
+---
+
+### 4. **Handling Commented-Out Scripts**
+
+If temporarily commenting out script blocks, ensure the comment syntax is correct:
+html
+<!-- 
+<script>
+  alert("This script is disabled");
+</script>
+-->
+
+**Avoid mixing HTML tags inside comments**, which can cause the browser to parse incorrectly.
+
+---
+
+### 5. **Check for Issues with External Scripts**
+
+- **Avoid `document.write()` in External Scripts**  
+  `document.write()` can inject malformed HTML after page load, causing validation errors. Instead, use:
+  html
+  <div id="target"></div>
+  
+  And manipulate it via:
+  javascript
+  document.getElementById("target").innerHTML = "Injected content";
+  
+
+- **Verify Compatibility of External Scripts**  
+  Ensure third-party scripts (like analytics) follow standard HTML syntax and do not include malformed content.
+
+---
+
+### 6. **Validate and Test Your Fixes**
+
+- Use [validator.w3.org](https://validator.w3.org/) to check your HTML line-by-line after making corrections.
+- Test the page using a local development server (e.g., Live Server in VS Code), and ensure there are no console errors in the browser.
+
+---
+
+### 7. **Advanced Troubleshooting: Prevent XSS and Encoding Issues**
+
+- **Character Encoding Declaration**  
+  Make sure your `<head>` contains the correct character set:
+  html
+  <meta charset="UTF-8">
+  
+
+- **Escape User-Generated Content**  
+  If your page includes user-submitted data, properly escape characters like `<`, `>`, and `&`. In PHP, use:
+  php
+  htmlspecialchars($input);
+  
+
+---
+
+### Example Before and After Fix
+
+**Original Code:**
+html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="main.js"></script>
+    <!-- Dynamic data loading script -->
+  </head>
+  <body>
+    Welcome to our site!
+  </body>
+</html>
+
+**Validation Error:** Text node is directly inside `<body>` — invalid structure.
+
+**Corrected Version:**
+html
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <script src="main.js"></script>
+    <!-- Dynamic data loading script -->
+  </head>
+  <body>
+    <p>Welcome to our site!</p> <!-- Text now properly nested -->
+  </body>
+</html>
