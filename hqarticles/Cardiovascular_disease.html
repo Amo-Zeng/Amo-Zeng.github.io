@@ -1,0 +1,124 @@
+
+   <!-- 将 CSS 放在 head 内，JS 放在 body 末尾 -->
+   <!-- 添加字体预加载 -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> 
+   ```
+
+---
+
+### 📱 响应式设计增强
+```css
+/* 在 style.css 添加断点优化 */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .language-switch {
+    margin-bottom: 1rem;
+  }
+}
+```
+
+---
+
+### 🔐 隐私增强建议
+1. **添加 Cookie 合规横幅**
+   ```html
+   <div id="cookie-consent" style="position:fixed;bottom:0;width:100%;background:#222;color:#fff;padding:1rem;text-align:center;z-index:1000;">
+     本网站使用Cookies来优化体验。 
+     <button onclick="acceptCookies()" style="background:#4CAF50;border:none;padding:0.5rem 1rem;cursor:pointer;">接受</button>
+   </div>
+   <script>
+     function acceptCookies() {
+       document.getElementById('cookie-consent').style.display = 'none';
+       localStorage.setItem('cookiesAccepted', 'true');
+     }
+     // 检查用户是否已接受Cookies
+     if (localStorage.getItem('cookiesAccepted') === 'true') {
+       // 启用跟踪脚本
+     }
+   </script>
+   ```
+
+2. **数据可视化示例（可选添加）**
+   ```html
+   <section>
+     <h2>数据泄露趋势</h2>
+     <canvas id="breachChart" width="400" height="200"></canvas>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script>
+       const ctx = document.getElementById('breachChart').getContext('2d');
+       new Chart(ctx, {
+         type: 'line',
+         data: {
+           labels: ['2020', '2021', '2022', '2023'],
+           datasets: [{
+             label: '数据泄露事件（十万件）',
+             data: [28, 45, 67, 93],
+             borderColor: '#4CAF50'
+           }]
+         }
+       });
+     </script>
+   </section>
+   ```
+
+---
+
+### 🧩 功能扩展建议
+1. **语言切换实现**
+   ```javascript
+   // 在 script.js 中添加
+   const translations = {
+     en: {
+       title: "AI Privacy Guide",
+       description: "Learn about data protection strategies..."
+     },
+     zh: {
+       title: "人工智能隐私指南",
+       description: "了解数据保护策略..."
+     }
+   };
+
+   function toggleLanguage() {
+     const lang = document.documentElement.getAttribute('lang') === 'en' ? 'zh' : 'en';
+     document.documentElement.setAttribute('lang', lang);
+     document.querySelector('title').textContent = translations[lang].title;
+     document.querySelector('meta[name="description"]').setAttribute('content', translations[lang].description);
+     document.querySelector('header h1').textContent = translations[lang].title;
+     document.querySelector('main p').textContent = translations[lang].description;
+   }
+   ```
+
+2. **增强的 Call-to-Action**
+   ```html
+   <section style="background:#f5f5f5;padding:2rem;margin-top:2rem;border-left:4px solid #4CAF50;">
+     <h3>立即行动</h3>
+     <p>获取我们的加密指南与合规工具包</p>
+     <a href="#download" class="button">下载 PDF 资源</a>
+     <style>.button { background: #4CAF50; color: white; padding: 0.5rem 1rem; text-decoration: none; display: inline-block; margin-top: 1rem; }</style>
+   </section>
+   ```
+
+---
+
+### ✅ 合规性改进
+1. **结构化数据添加（SEO）**
+   ```html
+   <script type="application/ld+json">
+   {
+     "@context": "https://schema.org",
+     "@type": "Article",
+     "headline": "人工智能时代的隐私保护策略",
+     "description": "深入解析AI系统中的数据安全挑战与解决方案",
+     "author": {
+       "@type": "Person",
+       "name": "AI伦理团队"
+     },
+     "datePublished": "2025-01-01"
+   }
+   </script>
+   
