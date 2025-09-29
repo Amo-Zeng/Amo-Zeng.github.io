@@ -1,5 +1,33 @@
 
-<div class="cta">
-  <h3>Check Your AI Project's Privacy Risks Now</h3>
-  <p>Download our <a href="/privacy-checklist.pdf">"AI Privacy Compliance Quick Self-Assessment Checklist"</a> to identify key vulnerabilities!</p>
-</div>
+<!-- AdSense code must explicitly use HTTPS -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- Using protocol-relative paths (recommended) -->
+<link rel="stylesheet" href="//2AGI.me/style.css">
+
+<!-- Or using absolute HTTPS paths -->
+<script src="https://2AGI.me/script.js"></script>
+
+
+5. Configuration Validation Checklist:
+- [ ] Test certificate chain integrity using SSL Labs tools  
+- [ ] Check that all image resources use HTTPS URLs  
+- [ ] Verify that third-party tracking scripts are loaded over HTTPS  
+- [ ] Submit the HTTPS version in Google Search Console  
+- [ ] Update and check Disallow rules in robots.txt  
+- [ ] Update URL protocols in internal XML sitemaps  
+
+6. Enable HTTP/2 (requires server support):
+bash
+# Enable mod_http2 module in Apache
+sudo a2enmod http2
+# Certificate must include both IPv4 and IPv6 addresses
+
+
+7. Security Headers Hardening Recommendations:
+apache
+# Add to virtual host configuration
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-XSS-Protection "1; mode=block"
