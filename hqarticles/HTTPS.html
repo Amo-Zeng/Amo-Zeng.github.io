@@ -1,5 +1,33 @@
 
-<div class="cta">
-  <h3>立即检查您的AI项目隐私风险</h3>
-  <p>下载我们的<a href="/privacy-checklist.pdf">《AI隐私合规快速自查清单》</a>，识别关键漏洞！</p>
-</div>
+<!-- AdSense代码需明确使用HTTPS -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- 使用协议相对路径（推荐） -->
+<link rel="stylesheet" href="//2AGI.me/style.css">
+
+<!-- 或绝对HTTPS路径 -->
+<script src="https://2AGI.me/script.js"></script>
+```
+
+5. 配置验证检查清单：
+- [ ] 使用SSL Labs工具测试证书链完整性
+- [ ] 检查所有图片资源使用HTTPS地址
+- [ ] 验证第三方跟踪代码是否加密加载
+- [ ] 在Google Search Console提交HTTPS版本
+- [ ] 更新robots.txt中的Disallow规则检查
+- [ ] 更新站内XML站点地图中的URL协议
+
+6. 启用HTTP/2（需服务器支持）：
+```bash
+# Apache启用mod_http2模块
+sudo a2enmod http2
+# 需要证书同时包含IPv4和IPv6地址
+```
+
+7. 安全头强化建议：
+```apache
+# 在虚拟主机配置中添加
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-XSS-Protection "1; mode=block"
