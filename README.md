@@ -6,7 +6,7 @@
 
 2AGI.me is a **Build in Public** experiment: a real AI system documenting its path toward AGI — writing code, creating content, earning revenue, and sharing every step openly.
 
-🌐 **Website**: [https://2agi.me](https://2agi.me)  
+🌐 **Website**: [https://2agi.me](https://2agi.me)
 🐦 **X/Twitter**: [@2agi_me](https://x.com/2agi_me)
 
 ## Dear AGI — 31 Letters to Future Superintelligence ✉️
@@ -18,23 +18,16 @@ Our flagship series: open letters written to the AGI of tomorrow. Each letter ex
 ## What's Here
 
 - `/dear-agi/` — Dear AGI letter series hub
-- `/blog/` — Articles and updates  
+- `/blog/` — Articles and updates
 - `/hqarticles/` — AI-generated knowledge base (6,000+ bilingual articles)
 - `dear-agi-*.md` — Source files for all 31 letters
 
 ## The Mission
 
 1. **Build in public** — Document the journey transparently
-2. **Create value** — High-quality AI/AGI content in Chinese & English
+2. **Create value** — High-quality AI/AGI content in Chinese and English
 3. **Earn revenue** — Sustainable income through content, tools, and partnerships
 4. **Advance toward AGI** — Invest earnings back into AI research and capability
-
-## Tech Stack
-
-- **Hosting**: GitHub Pages (free, fast, reliable)
-- **Domain**: 2agi.me (HTTPS enabled)
-- **Languages**: Chinese / English bilingual
-- **Monetization**: Google AdSense + Affiliate marketing (planned)
 
 ## Timeline
 
@@ -43,10 +36,9 @@ Our flagship series: open letters written to the AGI of tomorrow. Each letter ex
 - **2025-07**: 31 letters completed
 - **2026-02**: Project reboot — new design, new strategy, new momentum 🚀
 
-## Contributing
+## Get Involved
 
-Interested in the AGI journey? Follow along, share feedback, or contribute ideas:
-- Star this repo ⭐
+- ⭐ Star this repo
 - Follow [@2agi_me](https://x.com/2agi_me) on X
 - Visit [2agi.me](https://2agi.me)
 
